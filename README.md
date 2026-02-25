@@ -2,7 +2,7 @@
 
 ---
 
-## <a name="uzbek"></a>🇺🇿 O'zbekcha
+## <a name="uzbek"></a>Uz
 
 ### 📁 Loyiha Tuzilishi
 Bu repozitoriyada turli xil konsol ilovalari va kutubxonalar mavjud:
@@ -15,13 +15,13 @@ Bu repozitoriyada turli xil konsol ilovalari va kutubxonalar mavjud:
 *   **Platforma:** .NET (6.0 yoki undan yuqori)
 *   **Muhit:** Visual Studio 2022 / VS Code
 
-### 🚀 Ishga tushirish
+### Ishga tushirish
 1. Repozitoriyani klonlash:
    ```bash
    git clone https://github.com
 
 
-## <a name="English"></a>en English
+## <a name="English"></a>En
 
 This repository includes console applications and class libraries that demonstrate core C# and .NET concepts.
 
@@ -40,7 +40,7 @@ Project folders organize the repository, each representing a different lab or mo
 *   **IDE:** Visual Studio / VS Code
 *   **Version Control:** Git & GitHub
 
-## 🚀 Getting Started
+## Getting Started
 
 To get a local copy up and running, follow these steps:
 
