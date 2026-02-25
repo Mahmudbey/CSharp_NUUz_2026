@@ -1,0 +1,7 @@
+D:\Asosiy\Docs\Projects\C#\Maxmud0\bin\Debug\Maxmud0.exe.config
+D:\Asosiy\Docs\Projects\C#\Maxmud0\bin\Debug\Maxmud0.exe
+D:\Asosiy\Docs\Projects\C#\Maxmud0\bin\Debug\Maxmud0.pdb
+D:\Asosiy\Docs\Projects\C#\Maxmud0\obj\Debug\Maxmud0.csproj.AssemblyReference.cache
+D:\Asosiy\Docs\Projects\C#\Maxmud0\obj\Debug\Maxmud0.csproj.CoreCompileInputs.cache
+D:\Asosiy\Docs\Projects\C#\Maxmud0\obj\Debug\Maxmud0.exe
+D:\Asosiy\Docs\Projects\C#\Maxmud0\obj\Debug\Maxmud0.pdb

@@ -1,0 +1,7 @@
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\bin\Debug\Maxmud5.exe.config
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\bin\Debug\Maxmud5.exe
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\bin\Debug\Maxmud5.pdb
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\obj\Debug\Maxmud5.csproj.AssemblyReference.cache
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\obj\Debug\Maxmud5.csproj.CoreCompileInputs.cache
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\obj\Debug\Maxmud5.exe
+D:\Asosiy\Docs\Projects\C#\#GitHub__CSharp_NUU_2026\Maxmud5\obj\Debug\Maxmud5.pdb
