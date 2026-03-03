@@ -18,7 +18,7 @@ Bu repozitoriyada turli xil konsol ilovalari va kutubxonalar mavjud:
 ### Ishga tushirish
 1. Repozitoriyani klonlash:
    ```bash
-   git clone https://github.com
+   https://github.com/Mahmudbey/CSharp_NUUz_2026
 
 
 ## <a name="English"></a>En
@@ -51,4 +51,4 @@ To get a local copy up and running, follow these steps:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com
+   https://github.com/Mahmudbey/CSharp_NUUz_2026
