@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud9\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA8DFA82-11B0-484E-BA2E-A3ECE45C573A}|Maxmud9.csproj|d:\\asosiy\\docs\\#projects\\c#\\csharp-labs\\_github_csharp_nuuz_2026\\maxmud9\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA8DFA82-11B0-484E-BA2E-A3ECE45C573A}|Maxmud9.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud9\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud9\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAowEkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T12:56:17.811Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

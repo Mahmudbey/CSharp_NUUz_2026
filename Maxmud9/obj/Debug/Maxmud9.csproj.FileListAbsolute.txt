@@ -1,0 +1,7 @@
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\bin\Debug\Maxmud9.exe.config
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\bin\Debug\Maxmud9.exe
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\bin\Debug\Maxmud9.pdb
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\obj\Debug\Maxmud9.csproj.AssemblyReference.cache
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\obj\Debug\Maxmud9.csproj.CoreCompileInputs.cache
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\obj\Debug\Maxmud9.exe
+D:\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud9\obj\Debug\Maxmud9.pdb
