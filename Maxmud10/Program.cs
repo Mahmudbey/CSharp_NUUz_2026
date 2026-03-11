@@ -25,7 +25,7 @@ namespace Maxmud10
                 javob += a > 0 ? $" {a} qoldiq kesma qoldi" : "";
                 Console.WriteLine(javob);
 
-                Console.WriteLine("Tugatilsinmi?\nHa[H]\tYo'q[Y]");
+                Console.WriteLine("Dastur tugatilsinmi?\nHa[H]\tYo'q[Y]");
                 string input =  (Console.ReadLine()).ToLower();
                 if (input == "h" || input == "ha")
                 {
@@ -34,6 +34,7 @@ namespace Maxmud10
 
             }
             */
+            
             // if-else ning qisqaroq yozilishi
             // shart? true holatda: false holatda
 
@@ -52,6 +53,7 @@ namespace Maxmud10
                 if (input == parol)
                 {
                     Console.WriteLine("Xush kelibsiz!");
+                    break;
                 }
                 else
                 {
@@ -66,8 +68,8 @@ namespace Maxmud10
                     break;
                 }
             }
-                */
-
+             */
+            /*
             int n = 250;
             int s = 0;
             int k = 0;
@@ -78,7 +80,7 @@ namespace Maxmud10
                 s += k;                
             }
             Console.WriteLine($"k={k-1}\ts={s-k}<{n}");
-
+            */
             
         }
     }
