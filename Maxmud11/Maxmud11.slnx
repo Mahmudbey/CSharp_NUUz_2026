@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="Maxmud11.csproj" />
+  <Project Path="../TestApp11/TestApp11.vdproj" Type="Installer">
+    <Build />
+  </Project>
+  <Project Path="Maxmud11.csproj" Id="71c97ec8-e7f0-415a-85f5-7d75ab4d3861" />
 </Solution>
