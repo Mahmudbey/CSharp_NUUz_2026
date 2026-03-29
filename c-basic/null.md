@@ -1,32 +1,3 @@
----
-description: Ushbu maqolada null haqida kerakli ma'lumotlarni yoritib o'tamiz.
-cover: ../.gitbook/assets/n1.png
-coverY: 0
-coverHeight: 598
-layout:
-  width: wide
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: false
-  description:
-    visible: true
-  tableOfContents:
-    visible: false
-  outline:
-    visible: false
-  pagination:
-    visible: true
-  metadata:
-    visible: false
-  tags:
-    visible: true
-tags:
-  - csharp
-  - 'null'
----
-
 # Null
 
 ### Ma'lumot turlari
