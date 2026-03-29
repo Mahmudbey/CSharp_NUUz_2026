@@ -1,4 +1,4 @@
-# Null
+# [Null] (https://makhmudbey.gitbook.io/c-_basic/jLUUzfPSSDr3soBBoKWZ/)
 
 ### Ma'lumot turlari
 
