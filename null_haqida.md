@@ -110,7 +110,7 @@ Bu holat dasturlashda _null_ qiymatning qanday ishlashini va uning xotira boshqa
 
 **💡 Izoh** Null ning xotiradagi aniq qiymati (0000 yoki boshqa) dasturlash muhitiga bog'liq. Java Virtual Machine spetsifikatsiyasi ham: _"JVM null uchun aniq qiymatni belgilamaydi"_ deydi. C# da ham xuddi shunday.
 
-**Dasturlash tillarida `null` (yoki muqobillari) ning qiyosiy tahlili**
+**Dasturlash tillarida `null` (yoki muqobillari) ning solishtirish**
 
 | Mezon                   | C / C++                                                      | Java (JVM)                                                        | C# (.NET)                                              | **Python**                                               |
 | ----------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
@@ -125,7 +125,7 @@ Bu holat dasturlashda _null_ qiymatning qanday ishlashini va uning xotira boshqa
 > 💡 E**slatma:**\
 > Python-dagi `None` boshqa tillardagi `null` dan farqli o'laroq, shunchaki "bo'sh ko'rsatkich" emas, balki **haqiqiy ob'ektdir**. Shuning uchun Python-da `if x is None:` deb tekshirish eng to'g'ri va tezkor usul hisoblanadi (chunki u xotiradagi bitta ob'ekt manzilini solishtiradi).
 
-#### Null operatsiyalari — tezlik jihatidan
+#### Null operatsiyalari tezligi
 
 Null bilan ishlash **juda tez va arzon**. Faqat ikkita operatsiya mavjud:
 
@@ -147,15 +147,15 @@ Console.WriteLine("Ism yo'q");
 
 Ko'pchilik dasturchilar null ni noto'g'ri tushunadi.
 
-📧 **Savol: Alicening emailAddress null. Bu nima degani?**
+📧 **Savol: Alining emailAddress null. Bu nima degani?**
 
-Alicening `emailAddress` maydoni null bo'lsa, bu **bir nechta narsani anglatishi mumkin**: Alicening email manzili yo'q. Yoki bor, lekin hali kiritilmagan. Yoki maxfiy. Yoki dasturda xato bor. Kontekstsiz bilish mumkin emas.
+Alining `emailAddress` maydoni null bo'lsa, bu **bir nechta narsani anglatishi mumkin**: Alining email manzili yo'q. Yoki bor, lekin hali kiritilmagan. Yoki maxfiy. Yoki dasturda xato bor. Kontekstsiz bilish mumkin emas.
 
 Texnik jihatdan null faqat bitta narsani anglatadi: **"bu o'zgaruvchi bilan hech qanday qiymat bog'liq emas"**. Lekin _nima uchun_ bog'liq emas — bu kontekstga bog'liq.
 
 ❌ **Email yo'q**
 
-Alice haqiqatan ham email manziliga ega emas
+Ali haqiqatan ham email manziliga ega emas
 
 ⏳ **Hali kiritilmagan**
 
