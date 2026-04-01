@@ -14,15 +14,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -30,16 +26,12 @@
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud12\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud12\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwDkAAAAXAAAAAAAAAA==",
+              "ToolTip": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud12\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwDgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T15:05:38.492Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
             }
           ]
         }

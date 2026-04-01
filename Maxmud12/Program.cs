@@ -54,6 +54,7 @@ namespace Maxmud12
                 }
             }
             */
+            /*
              // 3-masala
              int n = 10;
              bool bor = false;
@@ -76,7 +77,12 @@ namespace Maxmud12
             }
             Console.WriteLine(bor?"Bir xil ishorali sonlar bor": "Bir xil ishorali sonlar yo'q");
             Console.WriteLine(sonlar3);
-            Chop(sonlar3);
+            Chop(sonlar3);*/
+
+            string raw = " Abdulloh ";
+            string cleaned = raw.Trim();
+            Console.WriteLine($"[{cleaned}]");
+
         }
     }
 }
