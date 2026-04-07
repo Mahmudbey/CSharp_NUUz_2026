@@ -11,7 +11,7 @@ namespace Maxmud19
                 new []{"C++","Go"},
                 new []{"SQL","HTML","CSS","Markdown"}
             };
-            //Chop(MatnMassiv);
+            Chop(MatnMassiv);
 
             int[][] SonMassiv =
             {
@@ -20,12 +20,11 @@ namespace Maxmud19
                 new []{ 0,-1,-8, 4},
                 new []{3,5,8 }
             };
-            Chop2(SonMassiv);
+            Chop(SonMassiv);
 
             
         }
-
-        static void Chop2(int[][] arr)
+        static void Chop<T>(T[][] arr)
         {
             foreach (var i in arr)
             {
@@ -36,7 +35,7 @@ namespace Maxmud19
                 Console.WriteLine();
             }
         }
-        static void Chop(object[][] arr)
+        static void Chop2(int[][] arr)
         {
             foreach (var i in arr)
             {
