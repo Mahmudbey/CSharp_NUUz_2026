@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Maxmud22\\",
+  "WorkspaceRootPath": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Test2\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
@@ -13,7 +13,15 @@
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
