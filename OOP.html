@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OOP 4 Tamoyil</title>
+<style>
+:root{--bg:#f8f6f0;--ink:#1c1a16;--mut:#5c5850;--rule:#dedad0;--pp:#fff;
+  --p1:#b53030;--p1d:#7a1f1f;--p2:#1d5fa8;--p3:#1a7a3e;--p4:#7a2fa0;
+  --cb:#1e2030;--cf:#c8d3f5;--kw:#c099ff;--st:#c3e88d;--cm:#636da6;--ty:#ff966c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,serif;font-size:16.5px;line-height:1.75}
+.page{max-width:860px;margin:0 auto;padding:44px 26px 100px}
+
+/* MASTHEAD */
+.mh{text-align:center;padding:44px 0 60px;border-bottom:2px solid var(--ink);margin-bottom:54px}
+.kick{font-family:'Courier New',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--p1);margin-bottom:18px}
+.mh h1{font-size:46px;font-weight:700;line-height:1.1;margin-bottom:16px}
+.mh .sub{font-size:17px;color:var(--mut);font-style:italic;margin-bottom:26px}
+.pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.pill{font-family:'Courier New',monospace;font-size:11px;padding:5px 14px;border-radius:20px;border:1px solid var(--rule);color:var(--mut);background:var(--pp)}
+
+/* TOC */
+.toc{background:var(--pp);border:1px solid var(--rule);border-radius:8px;padding:28px 32px;margin-bottom:56px}
+.toc-h{font-family:'Courier New',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--p1);margin-bottom:16px}
+.toc-g{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.ti{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px dotted var(--rule)}
+.tn{font-size:20px;font-weight:700;opacity:.2;min-width:20px}
+.tl{font-size:14.5px;color:var(--ink);text-decoration:none}.tl:hover{color:var(--p1)}
+
+/* FEYNMAN */
+.feyn{background:linear-gradient(135deg,#fff9e6,#fffdf5);border:2px solid #e8cc70;border-radius:10px;padding:24px 28px;margin:30px 0}
+.feyn::before{content:'💡 Feynman Usuli';font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8b6010;font-weight:700;display:block;margin-bottom:10px}
+.feyn p{font-size:16px;margin-bottom:8px;text-align:left}.feyn p:last-child{margin:0}
+.feyn .an{font-size:17.5px;font-style:italic;color:#5a3a00;font-weight:600;border-left:4px solid #e8cc70;padding-left:14px;margin:10px 0}
+
+/* CHAPTERS */
+.ch{margin-top:86px}
+.cs{display:flex;align-items:center;gap:18px;padding-top:46px;margin-bottom:6px;border-top:2px solid var(--ink)}
+.ct{font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:3px;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:3px;color:#fff}
+.c1 .ct{background:var(--p1)}.c2 .ct{background:var(--p2)}.c3 .ct{background:var(--p3)}.c4 .ct{background:var(--p4)}
+.ch h2{font-size:33px;font-weight:700;margin-bottom:4px}
+.csg{font-size:15.5px;color:var(--mut);font-style:italic;margin-bottom:30px}
+
+/* VISUAL BOX */
+.vb{background:var(--pp);border:1px solid var(--rule);border-radius:9px;padding:22px;margin:26px 0;overflow-x:auto}
+.vb h4{font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.vb svg{display:block;width:100%;height:auto}
+.ped svg{display:block;width:100%;height:auto}
+
+/* CONTENT */
+h3{font-size:22px;font-weight:700;margin:40px 0 10px}
+p{margin-bottom:14px;text-align:justify}
+ul,ol{margin:8px 0 14px;padding-left:24px}li{margin-bottom:5px}strong{font-weight:600}
+.note{background:#eef3f8;border-left:4px solid #6a9fc0;border-radius:4px;padding:14px 18px;margin:20px 0;font-size:15px}
+blockquote{margin:22px 0;padding:14px 20px;background:#f9f6ee;border-left:4px solid var(--p1);font-style:italic;font-size:16.5px;border-radius:0 5px 5px 0}
+blockquote p{margin:0;text-align:left}
+
+/* CODE */
+pre{background:var(--cb);color:var(--cf);padding:16px 18px;border-radius:7px;overflow-x:auto;font-family:'Courier New',monospace;font-size:12.5px;line-height:1.65;margin:16px 0}
+code{font-family:'Courier New',monospace;font-size:.87em;background:#ede9e0;padding:2px 5px;border-radius:3px;color:#6b2020}
+pre code{background:none;padding:0;color:inherit}
+.kw{color:var(--kw)}.st{color:var(--st)}.cm{color:var(--cm);font-style:italic}.ty{color:var(--ty)}.nu{color:#ff995e}
+
+/* EXAMPLES */
+.ex{margin:28px 0}
+.exh{display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:5px 5px 0 0;background:var(--cb)}
+.etag{font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:#fff;padding:3px 9px;border-radius:3px}
+.c1 .etag{background:var(--p1)}.c2 .etag{background:var(--p2)}.c3 .etag{background:var(--p3)}.c4 .etag{background:var(--p4)}.syn .etag{background:#555}
+.etit{color:#ccc;font-family:'Courier New',monospace;font-size:13px}
+.exb{background:var(--pp);border:1px solid var(--rule);border-top:none;padding:12px 18px}
+.exb p{font-size:14.5px;margin-bottom:6px;text-align:left}.exb p:last-child{margin:0}
+.ex pre{margin:8px 0 0;border-radius:0 0 5px 5px}
+
+/* COMPACT GRID */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.cgrid .ex{margin:0}
+
+/* RW CARDS */
+.rwg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.rwc{background:var(--pp);border:1px solid var(--rule);border-radius:7px;padding:14px 16px;border-top:3px solid}
+.c1 .rwc{border-top-color:var(--p1)}.c2 .rwc{border-top-color:var(--p2)}.c3 .rwc{border-top-color:var(--p3)}.c4 .rwc{border-top-color:var(--p4)}
+.rwc .ri{font-size:22px;margin-bottom:5px}.rwc h5{font-size:13.5px;font-weight:700;margin-bottom:3px}.rwc p{font-size:12.5px;color:var(--mut);margin:0;text-align:left}
+
+/* COMPARE */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.cb2{padding:14px 16px;border-radius:5px}
+.bad{background:#fff0f0;border:1px solid #f0b0b0}.good{background:#f0fdf4;border:1px solid #86efac}
+.cb2 .lbl{font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+.bad .lbl{color:#b02020}.good .lbl{color:#166534}
+.cb2 pre{margin:0;font-size:11.5px;background:transparent;color:inherit;padding:0;box-shadow:none}
+
+/* QCHECK */
+.qck{background:#fffcf5;border:2px solid #e8d8a0;border-radius:7px;padding:18px 22px;margin:28px 0}
+.qck-t{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7a6010;margin-bottom:12px;font-weight:700}
+.qck ol{margin:0;padding-left:18px}.qck li{font-size:15px;margin-bottom:5px}
+.qck button{margin-top:10px;background:none;border:1px solid #c8b060;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:'Courier New',monospace;font-size:11px;color:#7a6010}
+.qck button:hover{background:#f5e8a0}
+.ans{display:none;margin-top:10px;background:#fff;border:1px solid #e0d090;border-radius:5px;padding:10px 14px}
+.ans.open{display:block}.ans li{font-size:14px}.ans li strong{color:var(--p1)}
+.div{text-align:center;margin:50px 0;letter-spacing:10px;color:var(--rule);font-size:16px}
+
+/* POLYMORPHISM */
+.pew{border:1px solid var(--rule);border-radius:9px;overflow:hidden;margin:24px 0}
+.peh{background:var(--p3);padding:10px 18px;display:flex;align-items:center;gap:12px}
+.peh .pn{font-family:'Courier New',monospace;font-size:10px;color:rgba(255,255,255,.65)}
+.peh .pt{color:#fff;font-family:'Courier New',monospace;font-size:13px;font-weight:600}
+.ped{background:#fff;padding:18px}
+.pec{background:var(--pp);border-top:1px solid var(--rule);padding:12px 18px}
+.pec p{font-size:14px;color:var(--mut);margin-bottom:6px;text-align:left}
+.pec pre{margin:0;border-radius:5px}
+.pi{background:#edf7f1;border:1px solid #86efac;padding:9px 14px;font-size:13.5px;color:#0a4020;border-radius:0 0 9px 9px}
+.pi strong{color:#0a4020}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+th{background:#f0ede4;text-align:left;padding:8px 12px;font-weight:700;border-bottom:2px solid var(--ink)}
+td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:hover td{background:#faf8f2}
+
+/* ===== QUIZ ===== */
+#qs{background:var(--pp);border:1px solid var(--rule);border-radius:11px;padding:32px 36px;margin-top:70px}
+.qh{text-align:center;margin-bottom:32px}
+.qh h2{font-size:30px;font-weight:700;margin-bottom:7px}
+.qh p{color:var(--mut);font-size:15px}
+.qprog{background:var(--bg);border-radius:5px;padding:10px 14px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.qpl{font-family:'Courier New',monospace;font-size:11px;color:var(--mut)}
+.pbw{flex:1;height:5px;background:var(--rule);border-radius:3px;overflow:hidden}
+.pb{height:100%;background:var(--p1);border-radius:3px;transition:width .3s}
+.qcard{display:none}.qcard.on{display:block}
+.qbadge{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:3px;color:#fff;margin-bottom:10px;display:inline-block}
+.qnum{font-size:11.5px;color:var(--mut);font-family:'Courier New',monospace;margin-bottom:7px}
+.qtxt{font-size:17px;font-weight:600;margin-bottom:18px;line-height:1.4}
+.qcode{font-family:'Courier New',monospace;font-size:11.5px;background:var(--cb);color:var(--cf);padding:11px 14px;border-radius:5px;margin-bottom:18px;overflow-x:auto;white-space:pre}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;border:2px solid var(--rule);border-radius:7px;cursor:pointer;transition:border .15s,background .15s;background:var(--bg)}
+.opt:not(.done):hover{border-color:#aaa;background:#f0ede4}
+.opt.ok{border-color:var(--p3)!important;background:#edf7f1!important}
+.opt.ng{border-color:var(--p1)!important;background:#fff0f0!important}
+.opt.sk{border-color:#bbb!important;background:#f5f3ee!important}
+.opt .ok{font-family:'Courier New',monospace;font-weight:700;font-size:12.5px;min-width:22px;padding-top:1px}
+.oc{flex:1}
+.ot{display:block;font-size:15px;line-height:1.42}
+.ow{display:none;font-size:13px;margin-top:6px;padding:6px 9px;border-radius:4px;line-height:1.48}
+.opt.ok .ow,.opt.ng .ow,.opt.sk .ow{display:block}
+.opt.ok .ow{background:#c8f0d8;color:#0a4020}
+.opt.ng .ow{background:#ffd8d8;color:#7a0000}
+.opt.sk .ow{background:#e8e4dc;color:#555}
+.qnav{display:flex;gap:9px;margin-top:18px}
+.qbtn{font-family:'Courier New',monospace;font-size:12.5px;font-weight:600;padding:9px 20px;border-radius:5px;border:2px solid;cursor:pointer;transition:all .15s}
+.btnx{background:var(--p1);color:#fff;border-color:var(--p1)}.btnx:hover{background:var(--p1d)}.btnx:disabled{opacity:.35;cursor:not-allowed}
+
+/* RESULTS */
+#rs{display:none}
+.rh{text-align:center;padding:34px 0 26px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.sr{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;font-weight:700;border:5px solid}
+.rh h2{font-size:26px;font-weight:700;margin-bottom:6px}.rh p{color:var(--mut);font-size:14px}
+.ssg{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:28px}
+.ss{text-align:center;padding:12px 8px;border-radius:7px;border:1px solid var(--rule)}
+.ss .sl{font-size:10px;color:var(--mut);font-family:'Courier New',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.ss .sn{font-size:24px;font-weight:700}
+.ri2{padding:16px 18px;margin-bottom:10px;border-radius:7px;border:1px solid var(--rule)}
+.ri2.ok2{background:#edf7f1;border-color:#86efac}.ri2.ng2{background:#fff0f0;border-color:#fca5a5}
+.rih{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.rio{font-size:18px;margin-top:2px}.riq{font-size:15px;font-weight:600;line-height:1.38}
+.riqn{font-size:11px;color:var(--mut);font-family:'Courier New',monospace}
+.rans{font-size:13.5px;margin-bottom:8px}
+.rca{color:#166534;font-weight:600}.rwa{color:#b91c1c}
+.rexp{background:#fff;border-radius:5px;padding:10px 13px;border:1px solid rgba(0,0,0,.07)}
+.rexh{font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-bottom:5px}
+.rexp p{font-size:13.5px;margin:0;text-align:left}
+.btnr{font-family:'Courier New',monospace;background:var(--p1);color:#fff;border:none;padding:11px 28px;border-radius:7px;font-size:12.5px;cursor:pointer;font-weight:700;margin-top:16px}
+.btnr:hover{background:var(--p1d)}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center;padding:18px;display:none}
+.mo.show{display:flex}
+.mb{background:#fff;border-radius:12px;max-width:480px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.mi{font-size:34px;text-align:center;margin-bottom:12px}
+.mt2{font-size:20px;font-weight:700;margin-bottom:5px;text-align:center}
+.ms{text-align:center;color:var(--mut);font-size:13.5px;margin-bottom:16px}
+.mhint{background:#fff7e6;border:1px solid #e8cc70;border-radius:7px;padding:11px 14px;margin-bottom:14px;font-size:14px}
+.mhint a{color:var(--p1);font-weight:700;text-decoration:none}
+.mrh{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.ml2{display:flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid var(--rule);border-radius:7px;margin-bottom:6px;text-decoration:none;color:var(--ink);transition:all .12s}
+.ml2:hover{background:#f0ede4;border-color:#aaa}.ml2 .mli{font-size:15px;min-width:20px}
+.ml2 .mlt{font-size:13px;font-weight:600;display:block}.ml2 .mls{font-size:11px;color:var(--mut)}
+.mclose{width:100%;margin-top:16px;padding:10px;background:var(--ink);color:#fff;border:none;border-radius:7px;font-family:'Courier New',monospace;font-size:12px;font-weight:700;cursor:pointer}
+.mclose:hover{background:#444}
+
+/* GLOSSARY */
+.glos{background:#f5f2e8;border-radius:7px;padding:22px 26px;margin:26px 0}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);text-align:center;font-size:12px;color:var(--mut);font-family:'Courier New',monospace;line-height:2}
+
+@media(max-width:620px){
+  .page{padding:18px 10px 60px}
+  .mh h1{font-size:28px}
+  .toc-g,.rwg,.cmp,.cgrid,.ssg{grid-template-columns:1fr}
+  #qs{padding:18px 13px}
+  pre{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- MASTHEAD -->
+<header class="mh">
+  <div class="kick">Feynman Usuli · Grafik · C# OOP · v3</div>
+  <h1>OOPning 4 Tamoyili</h1>
+  <p class="sub">Real dunyo → Kod. Grafik tushuntirishlar. 20 ta izohli test.</p>
+  <div class="pills">
+    <span class="pill">⏱ ~120 min</span>
+    <span class="pill">💻 40+ misol</span>
+    <span class="pill">🧠 Feynman</span>
+    <span class="pill">📊 SVG diagrammalar</span>
+    <span class="pill">🧪 20 ta test</span>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-h">Mundarija</div>
+  <div class="toc-g">
+    <div class="ti"><span class="tn">1</span><a class="tl" href="#t1">Inkapsulyatsiya — "Himoya qil"</a></div>
+    <div class="ti"><span class="tn">2</span><a class="tl" href="#t2">Vorislik — "Takrorlama"</a></div>
+    <div class="ti"><span class="tn">3</span><a class="tl" href="#t3">Polimorfizm — 5 real misol</a></div>
+    <div class="ti"><span class="tn">4</span><a class="tl" href="#t4">Abstraktsiya — "Yashir"</a></div>
+    <div class="ti"><span class="tn">5</span><a class="tl" href="#t5">Sintez — 4 tamoyil birgalikda</a></div>
+    <div class="ti"><span class="tn">★</span><a class="tl" href="#qs">20 ta izohli test</a></div>
+  </div>
+</nav>
+
+<!-- ═══ §1 INKAPSULYATSIYA ═══ -->
+<div class="ch c1" id="t1">
+  <div class="cs"><span class="ct">1-tamoyil</span><span style="font-family:'Courier New',monospace;font-size:12px;color:var(--mut)">1/4</span></div>
+  <h2>Inkapsulyatsiya</h2>
+  <p class="csg">"Ob'yektning ichini himoya qil — faqat nazorat qilingan eshiklar orqali kir."</p>
+
+  <div class="feyn">
+    <p class="an">"ATM da tugmalarni bosasiz — pul chiqadi. Ichki mexanizm yashirilgan. Agar ATM qopqog'i ochiq bo'lsa — falokat."</p>
+    <p><strong>Dasturda:</strong> Maydonlar (<code>private</code>) = ATM ichidagi mexanizm. Metodlar/Xususiyatlar (<code>public</code>) = Tugmalar.</p>
+  </div>
+
+  <div class="vb">
+    <h4>Inkapsulyatsiya: Himoya qatlamlari — BankHisobi misoli</h4>
+    <svg viewBox="0 0 760 310" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+      <!-- ─── MASHINA SVG ILLUSTRATSIYA ─── -->
+      <!-- Mashina tanasi -->
+      <g transform="translate(20,10)">
+        <text x="170" y="14" text-anchor="middle" fill="#b53030" font-size="9.5" font-weight="700">🚗 Cobalt (Real ob'yekt)</text>
+        <!-- Asosiy tana -->
+        <rect x="30" y="60" width="280" height="80" rx="10" fill="#c8d8f0" stroke="#6688bb" stroke-width="2"/>
+        <!-- Kabina -->
+        <path d="M80,60 Q100,22 160,20 Q220,18 250,22 Q275,26 280,60Z" fill="#a0c0e8" stroke="#6688bb" stroke-width="1.5"/>
+        <!-- Oynalar -->
+        <path d="M90,58 Q106,32 148,30 Q170,29 172,58Z" fill="#d8eeff" stroke="#8ab" stroke-width="1" opacity=".8"/>
+        <path d="M178,58 Q180,30 230,28 Q248,30 252,58Z" fill="#d8eeff" stroke="#8ab" stroke-width="1" opacity=".8"/>
+        <!-- Oldgi to'siq -->
+        <rect x="305" y="82" width="20" height="46" rx="4" fill="#aaa" stroke="#888" stroke-width="1.5"/>
+        <!-- Orqa to'siq -->
+        <rect x="15" y="82" width="20" height="46" rx="4" fill="#aaa" stroke="#888" stroke-width="1.5"/>
+        <!-- Faralar -->
+        <ellipse cx="322" cy="95" rx="8" ry="6" fill="#ffe066" stroke="#cc8" stroke-width="1"/>
+        <ellipse cx="20" cy="95" rx="7" ry="5" fill="#ff8888" stroke="#c88" stroke-width="1"/>
+        <!-- G'ildiraklar -->
+        <circle cx="80"  cy="145" r="28" fill="#333" stroke="#111" stroke-width="2"/>
+        <circle cx="80"  cy="145" r="18" fill="#666" stroke="#555" stroke-width="1"/>
+        <circle cx="80"  cy="145" r="8"  fill="#aaa"/>
+        <circle cx="255" cy="145" r="28" fill="#333" stroke="#111" stroke-width="2"/>
+        <circle cx="255" cy="145" r="18" fill="#666" stroke="#555" stroke-width="1"/>
+        <circle cx="255" cy="145" r="8"  fill="#aaa"/>
+        <!-- Mashina xususiyatlari -->
+        <text x="170" y="185" text-anchor="middle" fill="#555" font-size="8.5">Model: "Cobalt"  |  Tezlik: 0 km/h  |  Yonilg'i: 40L</text>
+      </g>
+
+      <!-- ─── BAD SIDE ─── -->
+      <rect x="5" y="215" width="345" height="88" rx="9" fill="#fff0f0" stroke="#f0b0b0" stroke-width="2"/>
+      <text x="177" y="232" text-anchor="middle" fill="#b02020" font-size="10" font-weight="700">❌ Inkapsulyatsiyasiz (public maydonlar)</text>
+      <text x="20"  y="252" fill="#c02020" font-size="9.5">public string  _model;</text>
+      <text x="20"  y="267" fill="#c02020" font-size="9.5">public int     _tezlik;</text>
+      <text x="20"  y="282" fill="#c02020" font-size="9.5">public double  _yonilgi;</text>
+      <text x="195" y="252" fill="#c02020" font-size="9">→  m._tezlik = 999;  // limit yo'q!</text>
+      <text x="195" y="267" fill="#c02020" font-size="9">→  m._yonilgi = -50; // manfiy!</text>
+      <text x="195" y="282" fill="#c02020" font-size="9">→  m._model = null;  // crash!</text>
+
+      <!-- ─── GOOD SIDE ─── -->
+      <rect x="410" y="215" width="345" height="88" rx="9" fill="#edf7f1" stroke="#86efac" stroke-width="2"/>
+      <text x="582" y="232" text-anchor="middle" fill="#166534" font-size="10" font-weight="700">✅ Inkapsulyatsiya bilan (private + metodlar)</text>
+      <text x="425" y="252" fill="#1a6030" font-size="9.5">🔒 private string  _model;</text>
+      <text x="425" y="267" fill="#1a6030" font-size="9.5">🔒 private int     _tezlik = 0;</text>
+      <text x="425" y="282" fill="#1a6030" font-size="9.5">✅ void Tezlash(int n) { if(n&gt;0) ... }</text>
+      <text x="582" y="297" text-anchor="middle" fill="#166534" font-size="9">Har o'zgarish tekshiriladi — xavfsiz!</text>
+    </svg>
+  </div>
+
+  <div class="rwg">
+    <div class="rwc"><div class="ri">🏦</div><h5>Banklarda</h5><p>Balans private. Faqat rasmiy tranzaksiya orqali. Har o'zgarish logda.</p></div>
+    <div class="rwc"><div class="ri">🔐</div><h5>Autentifikatsiya</h5><p>Parol hesh ko'rinishida. Faqat ParolHaqiqiyMi() orqali tekshiriladi.</p></div>
+    <div class="rwc"><div class="ri">🎮</div><h5>O'yinlarda</h5><p>HP private. Faqat ZararOl() va Davolash() orqali. Math.Max(0,...) kafolat.</p></div>
+    <div class="rwc"><div class="ri">🌡️</div><h5>Smart qurilmalar</h5><p>Harorat diapazoni nazorat qilinadi. Manfiy yoki juda yuqori bo'lmaydi.</p></div>
+  </div>
+
+  <div class="ex">
+    <div class="exh c1"><span class="etag">Misol 1</span><span class="etit">🏦 BankHisobi</span></div>
+    <div class="exb"><p>Balans hech qachon to'g'ridan-to'g'ri o'zgartirilmaydi. Faqat nazoratli metodlar orqali.</p></div>
+<pre><span class="kw">public class</span> <span class="ty">BankHisobi</span>
+{
+    <span class="kw">private</span> <span class="ty">decimal</span> _balans;
+    <span class="kw">private readonly string</span> _raqam;
+
+    <span class="kw">public</span> BankHisobi(<span class="ty">string</span> raqam, <span class="ty">decimal</span> boshlang)
+    {
+        <span class="kw">if</span> (boshlang &lt; <span class="nu">0</span>) <span class="kw">throw new</span> <span class="ty">ArgumentException</span>(<span class="st">"Manfiy bo'lmasin!"</span>);
+        _raqam = raqam; _balans = boshlang;
+    }
+    <span class="kw">public</span> <span class="ty">decimal</span> Balans =&gt; _balans;   <span class="cm">// faqat o'qish</span>
+
+    <span class="kw">public void</span> PulSolish(<span class="ty">decimal</span> m) {
+        <span class="kw">if</span> (m &lt;= <span class="nu">0</span>) <span class="kw">throw new</span> <span class="ty">ArgumentException</span>(<span class="st">"Musbat bo'lsin!"</span>);
+        _balans += m;
+    }
+    <span class="kw">public bool</span> PulYechish(<span class="ty">decimal</span> m) {
+        <span class="kw">if</span> (m &lt;= <span class="nu">0</span> || m &gt; _balans) <span class="kw">return false</span>;
+        _balans -= m; <span class="kw">return true</span>;
+    }
+    <span class="cm">// h._balans = -999; ← ❌ XATO! private</span>
+}</pre>
+  </div>
+
+  <div class="cgrid">
+    <div class="ex"><div class="exh c1"><span class="etag">Misol 2</span><span class="etit">🎮 Qahramon HP</span></div>
+<pre><span class="kw">public class</span> <span class="ty">Qahramon</span> {
+    <span class="kw">private int</span> _hp, _maks;
+    <span class="kw">public string</span> Ismi { <span class="kw">get</span>; }
+    <span class="kw">public int</span>    HP    =&gt; _hp;
+    <span class="kw">public bool</span>   TiriMi =&gt; _hp &gt; <span class="nu">0</span>;
+    <span class="kw">public</span> Qahramon(<span class="ty">string</span> n,<span class="ty">int</span> m)
+    { Ismi=n; _maks=m; _hp=m; }
+    <span class="kw">public void</span> Zarar(<span class="ty">int</span> z)
+        =&gt; _hp = Math.Max(<span class="nu">0</span>, _hp - z);
+    <span class="kw">public void</span> Davolash(<span class="ty">int</span> d)
+        =&gt; _hp = Math.Min(_maks, _hp + d);
+    <span class="cm">// qahramon.HP=-999; ← private!</span>
+}</pre>
+    </div>
+    <div class="ex"><div class="exh c1"><span class="etag">Misol 3</span><span class="etit">🔐 ParolHaqiqiyMi</span></div>
+<pre><span class="kw">public class</span> <span class="ty">ParolMenejeri</span> {
+    <span class="kw">private readonly string</span> _hesh;
+    <span class="kw">public</span> ParolMenejeri(<span class="ty">string</span> parol) {
+        <span class="kw">if</span> (parol.Length &lt; <span class="nu">8</span>)
+            <span class="kw">throw new</span> <span class="ty">ArgumentException</span>(
+                <span class="st">"Min 8 belgi!"</span>);
+        _hesh = parol
+            .GetHashCode().ToString();
+    }
+    <span class="cm">// Parol HECH QACHON chiqmaydi!</span>
+    <span class="kw">public bool</span> ParolHaqiqiyMi(<span class="ty">string</span> p)
+        =&gt; p.GetHashCode().ToString()==_hesh;
+}</pre>
+    </div>
+  </div>
+</div>
+
+  <div class="vb" style="margin-top:20px">
+    <h4>Parol xavfsizligi — inkapsulyatsiya jarayoni</h4>
+    <svg viewBox="0 0 760 155" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+      <defs><marker id="ap" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+      <!-- User -->
+      <rect x="5" y="28" width="128" height="95" rx="7" fill="#f0ede4" stroke="#888" stroke-width="1.5"/>
+      <text x="69" y="54" text-anchor="middle" font-size="24">👤</text>
+      <text x="69" y="74" text-anchor="middle" fill="#333" font-size="9" font-weight="700">FOYDALANUVCHI</text>
+      <text x="69" y="90" text-anchor="middle" fill="#555" font-size="8">ParolOzgartir("abc")</text>
+      <text x="69" y="105" text-anchor="middle" fill="#555" font-size="8">ParolHaqiqiyMi("abc")</text>
+      <line x1="133" y1="75" x2="162" y2="75" stroke="#888" stroke-width="2" marker-end="url(#ap)"/>
+      <!-- Class -->
+      <rect x="162" y="18" width="200" height="118" rx="7" fill="#1e2030" stroke="#c099ff" stroke-width="1.5"/>
+      <text x="262" y="38" text-anchor="middle" fill="#c099ff" font-size="10" font-weight="700">ParolXavfsizligi</text>
+      <line x1="162" y1="44" x2="362" y2="44" stroke="#636da6" stroke-width="1"/>
+      <text x="176" y="60" fill="#c3e88d" font-size="8.5">🔒 private string _hash;</text>
+      <text x="176" y="75" fill="#c3e88d" font-size="8.5">🔒 private string _salt;</text>
+      <line x1="162" y1="82" x2="362" y2="82" stroke="#636da6" stroke-width="1"/>
+      <text x="176" y="96" fill="#ff966c" font-size="8.5">+ ParolOzgartir(string p)</text>
+      <text x="176" y="110" fill="#ff966c" font-size="8.5">+ ParolHaqiqiyMi(string p)</text>
+      <text x="176" y="127" fill="#636da6" font-size="7.5">// _hash hech qachon chiqmaydi!</text>
+      <line x1="362" y1="75" x2="391" y2="75" stroke="#1a7a3e" stroke-width="2" marker-end="url(#ap)"/>
+      <!-- BCrypt -->
+      <rect x="391" y="28" width="140" height="95" rx="7" fill="#1a7a3e"/>
+      <text x="461" y="54" text-anchor="middle" font-size="22">🔐</text>
+      <text x="461" y="72" text-anchor="middle" fill="white" font-size="9.5" font-weight="700">SHA-256 / BCrypt</text>
+      <text x="461" y="87" text-anchor="middle" fill="#c0ffd0" font-size="8">"abc"+"salt"</text>
+      <text x="461" y="100" text-anchor="middle" fill="#c0ffd0" font-size="8">→ "$2b$12$xK..."</text>
+      <line x1="531" y1="75" x2="558" y2="75" stroke="#888" stroke-width="2" marker-end="url(#ap)"/>
+      <!-- Output -->
+      <rect x="558" y="28" width="195" height="95" rx="7" fill="#fff0f0" stroke="#b53030" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="655" y="54" text-anchor="middle" font-size="20">🚫</text>
+      <text x="655" y="72" text-anchor="middle" fill="#b53030" font-size="9.5" font-weight="700">_hash tashqariga CHIQMAYDI</text>
+      <text x="655" y="87" text-anchor="middle" fill="#555" font-size="8">ParolHaqiqiyMi → true/false</text>
+      <text x="655" y="101" text-anchor="middle" fill="#555" font-size="8">Haqiqiy hash hech ko'rinmaydi</text>
+    </svg>
+  </div>
+  <div class="ex">
+    <div class="exh c1"><span class="etag">Misol 4</span><span class="etit">🔒 Parol xavfsizligi — _hash va _salt private</span></div>
+    <div class="exb"><p>Tashqi kod parolni <strong>ko'ra olmaydi</strong> — faqat <code>ParolHaqiqiyMi()</code> orqali tekshira oladi.</p></div>
+<pre><span class="kw">public class</span> <span class="ty">ParolXavfsizligi</span> {
+    <span class="kw">private string</span> _hash;   <span class="cm">// 🔒 hech qachon tashqariga chiqmaydi</span>
+    <span class="kw">private string</span> _salt;   <span class="cm">// 🔒 har foydalanuvchi uchun noyob</span>
+
+    <span class="kw">public</span> ParolXavfsizligi(<span class="ty">string</span> parol) {
+        _salt = Guid.NewGuid().ToString();
+        _hash = Heshla(parol + _salt);      <span class="cm">// tekshiruv bilan</span>
+    }
+
+    <span class="kw">public void</span> ParolOzgartir(<span class="ty">string</span> yangi) {
+        <span class="kw">if</span> (yangi.Length &lt; <span class="nu">8</span>) <span class="kw">throw new</span> <span class="ty">ArgumentException</span>(<span class="st">"Min 8 belgi!"</span>);
+        _salt = Guid.NewGuid().ToString();
+        _hash = Heshla(yangi + _salt);      <span class="cm">// yangi hash yaratiladi</span>
+    }
+
+    <span class="kw">public bool</span> ParolHaqiqiyMi(<span class="ty">string</span> p) =&gt;
+        Heshla(p + _salt) == _hash;         <span class="cm">// faqat true/false qaytadi</span>
+
+    <span class="kw">private string</span> Heshla(<span class="ty">string</span> m) {       <span class="cm">// private — faqat ichkarida</span>
+        <span class="kw">var</span> bytes = System.Security.Cryptography.SHA256
+            .Create().ComputeHash(System.Text.Encoding.UTF8.GetBytes(m));
+        <span class="kw">return</span> Convert.ToBase64String(bytes);
+    }
+}
+<span class="cm">// pm._hash          ← ❌ XATO! private
+// pm.ParolHaqiqiyMi("to'g'ri parol") → true  ✅
+// pm.ParolHaqiqiyMi("xato parol")    → false ✅</span></pre>
+  </div>
+
+<div class="div">⬤ ⬤ ⬤</div>
+
+<!-- ═══ §2 VORISLIK ═══ -->
+<div class="ch c2" id="t2">
+  <div class="cs"><span class="ct">2-tamoyil</span></div>
+  <h2>Vorislik</h2>
+  <p class="csg">"Umumiy xususiyatlarni baza sinfda yig'ib, vorislar faqat o'ziga xos narsalarni qo'ssin."</p>
+
+  <div class="feyn">
+    <p class="an">"Barcha uylar: kvartira, villa — eshik, devor, tomga ega. Bu umumiylikni qayta qurmaysiz — 'Uy' tipidan meros olasiz."</p>
+    <p><strong>Is-A testi:</strong> "Shifokor — tibbiy xodimMI?" — Ha ✅ → vorislik. "Mashinada eshik borMI?" — Bu has-a (kompozitsiya).</p>
+  </div>
+
+  <div class="vb">
+    <h4>Vorislik: Universitetdagi rollar ierarxiyasi</h4>
+    <svg viewBox="0 0 740 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+      <rect x="250" y="5" width="240" height="68" rx="7" fill="#1d5fa8"/>
+      <text x="370" y="26" text-anchor="middle" fill="white" font-size="12" font-weight="700">Shaxs (baza sinf)</text>
+      <text x="370" y="43" text-anchor="middle" fill="#c0d8ff" font-size="9.5">ismi, yoshi, ID</text>
+      <text x="370" y="58" text-anchor="middle" fill="#89ddff" font-size="9">OziniTanishtir() → virtual</text>
+      <line x1="290" y1="73" x2="140" y2="130" stroke="#1d5fa8" stroke-width="2"/>
+      <line x1="370" y1="73" x2="370" y2="130" stroke="#1d5fa8" stroke-width="2"/>
+      <line x1="450" y1="73" x2="600" y2="130" stroke="#1d5fa8" stroke-width="2"/>
+      <polygon points="140,118 148,126 140,134 132,126" fill="white" stroke="#1d5fa8" stroke-width="2"/>
+      <polygon points="370,118 378,126 370,134 362,126" fill="white" stroke="#1d5fa8" stroke-width="2"/>
+      <polygon points="600,118 608,126 600,134 592,126" fill="white" stroke="#1d5fa8" stroke-width="2"/>
+      <rect x="55" y="134" width="170" height="70" rx="7" fill="#2a7ac8"/>
+      <text x="140" y="153" text-anchor="middle" fill="white" font-size="11" font-weight="700">👨‍🎓 Talaba</text>
+      <text x="140" y="170" text-anchor="middle" fill="#c0d8ff" font-size="9">+ kurs, GPA</text>
+      <text x="140" y="185" text-anchor="middle" fill="#c0d8ff" font-size="9">+ BahoOlish() override</text>
+      <text x="140" y="198" text-anchor="middle" fill="#636da6" font-size="8">: base(ismi, yoshi)</text>
+      <rect x="285" y="134" width="170" height="70" rx="7" fill="#2a7ac8"/>
+      <text x="370" y="153" text-anchor="middle" fill="white" font-size="11" font-weight="700">👩‍🏫 O'qituvchi</text>
+      <text x="370" y="170" text-anchor="middle" fill="#c0d8ff" font-size="9">+ fani, staj</text>
+      <text x="370" y="185" text-anchor="middle" fill="#c0d8ff" font-size="9">+ DarsOlib() override</text>
+      <text x="370" y="198" text-anchor="middle" fill="#636da6" font-size="8">: base(ismi, yoshi)</text>
+      <rect x="515" y="134" width="170" height="70" rx="7" fill="#2a7ac8"/>
+      <text x="600" y="153" text-anchor="middle" fill="white" font-size="11" font-weight="700">🏢 Xodim</text>
+      <text x="600" y="170" text-anchor="middle" fill="#c0d8ff" font-size="9">+ lavozim, bo'lim</text>
+      <text x="600" y="185" text-anchor="middle" fill="#c0d8ff" font-size="9">+ IshBoshlash() override</text>
+      <text x="600" y="198" text-anchor="middle" fill="#636da6" font-size="8">: base(ismi, yoshi)</text>
+      <line x1="140" y1="204" x2="140" y2="230" stroke="#1d5fa8" stroke-width="2"/>
+      <polygon points="140,218 147,226 140,234 133,226" fill="white" stroke="#1d5fa8" stroke-width="2"/>
+      <rect x="55" y="234" width="170" height="12" rx="4" fill="#3a8ad8"/>
+      <text x="140" y="244" text-anchor="middle" fill="white" font-size="8.5">MagistrantTalaba</text>
+    </svg>
+  </div>
+
+  <div class="ex">
+    <div class="exh c2"><span class="etag">Misol 1</span><span class="etit">🏥 TibbiyXodim → Shifokor, Hamshira</span></div>
+<pre><span class="kw">public abstract class</span> <span class="ty">TibbiyXodim</span> {
+    <span class="kw">public string</span> Ismi    { <span class="kw">get</span>; }
+    <span class="kw">public int</span>    IshStaji { <span class="kw">get</span>; }
+    <span class="kw">protected</span> TibbiyXodim(<span class="ty">string</span> n, <span class="ty">int</span> s) { Ismi=n; IshStaji=s; }
+    <span class="kw">public void</span> Tanishtir()
+        =&gt; Console.WriteLine(<span class="st">$"{Ismi} | Staj: {IshStaji} yil"</span>);
+    <span class="kw">public abstract</span> <span class="ty">decimal</span> OylikMaosh();
+}
+<span class="kw">public class</span> <span class="ty">Shifokor</span> : <span class="ty">TibbiyXodim</span> {
+    <span class="kw">public string</span> Mutaxassislik { <span class="kw">get</span>; }
+    <span class="kw">public</span> Shifokor(<span class="ty">string</span> n,<span class="ty">int</span> s,<span class="ty">string</span> m):base(n,s){Mutaxassislik=m;}
+    <span class="kw">public override</span> <span class="ty">decimal</span> OylikMaosh() =&gt; <span class="nu">8_000_000</span>+IshStaji*<span class="nu">200_000</span>;
+}
+<span class="kw">public class</span> <span class="ty">Hamshira</span> : <span class="ty">TibbiyXodim</span> {
+    <span class="kw">public</span> Hamshira(<span class="ty">string</span> n,<span class="ty">int</span> s):base(n,s){}
+    <span class="kw">public override</span> <span class="ty">decimal</span> OylikMaosh() =&gt; <span class="nu">4_500_000</span>+IshStaji*<span class="nu">100_000</span>;
+}
+<span class="cm">// Foydalanish:</span>
+<span class="kw">var</span> dr = <span class="kw">new</span> <span class="ty">Shifokor</span>(<span class="st">"Salimov"</span>,<span class="nu">12</span>,<span class="st">"Kardiolog"</span>);
+dr.Tanishtir();   <span class="cm">// baza sinfdan — qayta yozilmadi!</span>
+Console.WriteLine(dr.OylikMaosh()); <span class="cm">// 10_400_000</span></pre>
+  </div>
+
+  <!-- LSP -->
+  <div class="feyn" style="margin-top:24px">
+    <p><strong>Liskov Substitution Principle (LSP)</strong> — vorislikning oltin qoidasi:</p>
+    <p class="an">"Voris sinf baza sinf o'rnida har doim ishlashi kerak. BankAccount o'rniga SavingsAccount qo'yilsa — dastur buzilmasin."</p>
+    <p>Sodda test: <code>BankAccount acc = new SavingsAccount("UZ001", 5_000_000);</code></p>
+    <p>→ <code>acc.Withdraw(100_000)</code> ishlashi kerak ✅ &nbsp; → <code>acc.Deposit(200_000)</code> ishlashi kerak ✅</p>
+    <p><strong>LSP buzilishi misoli:</strong> <code>ReadOnlyAccount</code> dan <code>Withdraw()</code> ni <code>throw</code> qilish — baza sinf shartnomasi buziladi ❌</p>
+  </div>
+
+  <div class="vb">
+    <h4>Bank hisoblari: BankAccount → 3 ta voris sinf (LSP tamoyili)</h4>
+    <svg viewBox="0 0 760 285" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+      <defs><marker id="bi" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#1d5fa8"/></marker></defs>
+      <!-- BASE: BankAccount -->
+      <rect x="220" y="5" width="320" height="75" rx="8" fill="#1d5fa8"/>
+      <!-- Bank icon -->
+      <rect x="234" y="14" width="52" height="56" rx="4" fill="#2a7ac8"/>
+      <rect x="238" y="18" width="44" height="28" rx="2" fill="#ffe066" opacity=".6"/>
+      <rect x="242" y="48" width="4" height="16" fill="white" opacity=".7"/>
+      <rect x="250" y="48" width="4" height="16" fill="white" opacity=".7"/>
+      <rect x="258" y="48" width="4" height="16" fill="white" opacity=".7"/>
+      <rect x="266" y="48" width="4" height="16" fill="white" opacity=".7"/>
+      <text x="296" y="28" text-anchor="middle" fill="white" font-size="10.5" font-weight="700">BankAccount (Base)</text>
+      <line x1="294" y1="35" x2="530" y2="35" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <text x="296" y="50" text-anchor="middle" fill="#c0d8ff" font-size="9">Balans, EgasiIsmi, HisobRaqami</text>
+      <text x="296" y="65" text-anchor="middle" fill="#89ddff" font-size="9">Withdraw() · Deposit() · Balans {get}</text>
+      <!-- Arrows down -->
+      <line x1="290" y1="80" x2="120" y2="155" stroke="#1d5fa8" stroke-width="2"/>
+      <line x1="380" y1="80" x2="380" y2="155" stroke="#1d5fa8" stroke-width="2"/>
+      <line x1="470" y1="80" x2="640" y2="155" stroke="#1d5fa8" stroke-width="2"/>
+      <polygon points="120,143 128,151 120,159 112,151" fill="white" stroke="#1d5fa8" stroke-width="1.5"/>
+      <polygon points="380,143 388,151 380,159 372,151" fill="white" stroke="#1d5fa8" stroke-width="1.5"/>
+      <polygon points="640,143 648,151 640,159 632,151" fill="white" stroke="#1d5fa8" stroke-width="1.5"/>
+      <!-- SavingsAccount -->
+      <rect x="25" y="159" width="190" height="100" rx="7" fill="#2a7ac8"/>
+      <text x="40" y="178" fill="white" font-size="21">💰</text>
+      <text x="90" y="178" fill="white" font-size="10" font-weight="700">SavingsAccount</text>
+      <line x1="25" y1="185" x2="215" y2="185" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <text x="35" y="201" fill="#c0d8ff" font-size="8.5">+ FoizStavkasi: double</text>
+      <text x="35" y="216" fill="#c0d8ff" font-size="8.5">+ MuddatKun: int</text>
+      <text x="35" y="231" fill="#c0d8ff" font-size="8.5">+ FoizHisoblash()</text>
+      <text x="35" y="248" fill="#89ddff" font-size="8">override Withdraw() → muddat tekshiruvi</text>
+      <!-- CheckingAccount -->
+      <rect x="285" y="159" width="190" height="100" rx="7" fill="#2a7ac8"/>
+      <text x="300" y="178" fill="white" font-size="21">💳</text>
+      <text x="346" y="178" fill="white" font-size="10" font-weight="700">CheckingAccount</text>
+      <line x1="285" y1="185" x2="475" y2="185" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <text x="295" y="201" fill="#c0d8ff" font-size="8.5">+ OverdraftLimit: decimal</text>
+      <text x="295" y="216" fill="#c0d8ff" font-size="8.5">+ TransaksiyaTolovi: decimal</text>
+      <text x="295" y="231" fill="#c0d8ff" font-size="8.5">+ TolovQilish(decimal)</text>
+      <text x="295" y="248" fill="#89ddff" font-size="8">override Withdraw() → overdraft imkon</text>
+      <!-- CorporateAccount -->
+      <rect x="545" y="159" width="190" height="100" rx="7" fill="#2a7ac8"/>
+      <text x="560" y="178" fill="white" font-size="21">🏢</text>
+      <text x="605" y="178" fill="white" font-size="10" font-weight="700">CorporateAccount</text>
+      <line x1="545" y1="185" x2="735" y2="185" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <text x="555" y="201" fill="#c0d8ff" font-size="8.5">+ TasdiqlashDarajasi: int</text>
+      <text x="555" y="216" fill="#c0d8ff" font-size="8.5">+ YuridikHujjatlar: List</text>
+      <text x="555" y="231" fill="#c0d8ff" font-size="8.5">+ TasdiqlashZanjiri()</text>
+      <text x="555" y="248" fill="#89ddff" font-size="8">override Withdraw() → ko'p bosqichli</text>
+      <!-- LSP label -->
+      <rect x="25" y="272" width="710" height="12" rx="4" fill="#eff5fd"/>
+      <text x="380" y="281" text-anchor="middle" fill="#1d5fa8" font-size="8.5" font-weight="700">LSP: BankAccount acc = new SavingsAccount(...) ← ishlashi shart! acc.Withdraw() ✅ acc.Deposit() ✅</text>
+    </svg>
+  </div>
+
+  <div class="ex">
+    <div class="exh c2"><span class="etag">Misol 2</span><span class="etit">🏦 Bank hisoblari — LSP bilan vorislik</span></div>
+    <div class="exb"><p>Har bir hisob Withdraw() va Deposit() ni o'zi amalga oshiradi, lekin <code>BankAccount acc</code> tipida ishlatilganda LSP bajariladi.</p></div>
+<pre><span class="kw">public abstract class</span> <span class="ty">BankAccount</span> {
+    <span class="kw">protected</span> <span class="ty">decimal</span> _balans;
+    <span class="kw">public</span> <span class="ty">string</span>  HisobRaqami { <span class="kw">get</span>; }
+    <span class="kw">public</span> <span class="ty">decimal</span> Balans       =&gt; _balans;
+    <span class="kw">protected</span> BankAccount(<span class="ty">string</span> r, <span class="ty">decimal</span> b) { HisobRaqami=r; _balans=b; }
+    <span class="kw">public virtual void</span>   Deposit(<span class="ty">decimal</span> m)  { <span class="kw">if</span>(m&gt;<span class="nu">0</span>) _balans+=m; }
+    <span class="kw">public abstract bool</span>  Withdraw(<span class="ty">decimal</span> m);
+}
+
+<span class="kw">public class</span> <span class="ty">SavingsAccount</span> : <span class="ty">BankAccount</span> {
+    <span class="kw">public</span> <span class="ty">double</span> FoizStavkasi { <span class="kw">get</span>; }    <span class="cm">// yillik %</span>
+    <span class="kw">public</span> <span class="ty">int</span>    MuddatKun    { <span class="kw">get</span>; }    <span class="cm">// pul yechish mumkin bo'lgan kun</span>
+    <span class="kw">public</span> SavingsAccount(<span class="ty">string</span> r, <span class="ty">decimal</span> b, <span class="ty">double</span> foiz, <span class="ty">int</span> kun)
+        : base(r,b) { FoizStavkasi=foiz; MuddatKun=kun; }
+    <span class="kw">public override bool</span> Withdraw(<span class="ty">decimal</span> m) {
+        <span class="kw">if</span>(DateTime.Now.Day &lt; MuddatKun) { Console.WriteLine(<span class="st">"Muddat kelganda!"</span>); <span class="kw">return false</span>; }
+        <span class="kw">if</span>(m&gt;_balans) <span class="kw">return false</span>;
+        _balans -= m; <span class="kw">return true</span>;
+    }
+    <span class="kw">public void</span> FoizHisoblash() =&gt; _balans *= (<span class="ty">decimal</span>)(<span class="nu">1</span>+FoizStavkasi/<span class="nu">100</span>);
+}
+
+<span class="kw">public class</span> <span class="ty">CheckingAccount</span> : <span class="ty">BankAccount</span> {
+    <span class="kw">public</span> <span class="ty">decimal</span> OverdraftLimit    { <span class="kw">get</span>; }   <span class="cm">// minusga kirish chegarasi</span>
+    <span class="kw">public</span> <span class="ty">decimal</span> TransaksiyaTolovi { <span class="kw">get</span>; }   <span class="cm">// har tranzaksiyadan fee</span>
+    <span class="kw">public</span> CheckingAccount(<span class="ty">string</span> r,<span class="ty">decimal</span> b,<span class="ty">decimal</span> od)
+        : base(r,b) { OverdraftLimit=od; TransaksiyaTolovi=<span class="nu">500</span>; }
+    <span class="kw">public override bool</span> Withdraw(<span class="ty">decimal</span> m) {
+        <span class="kw">if</span>(m-_balans &gt; OverdraftLimit) { Console.WriteLine(<span class="st">"Overdraft limit oshdi!"</span>); <span class="kw">return false</span>; }
+        _balans -= m + TransaksiyaTolovi; <span class="kw">return true</span>;  <span class="cm">// fee ham yechiladi</span>
+    }
+}
+
+<span class="kw">public class</span> <span class="ty">CorporateAccount</span> : <span class="ty">BankAccount</span> {
+    <span class="kw">private</span> <span class="ty">int</span> _tasdiqDarajasi;
+    <span class="kw">public</span> CorporateAccount(<span class="ty">string</span> r,<span class="ty">decimal</span> b,<span class="ty">int</span> daraja)
+        : base(r,b) { _tasdiqDarajasi=daraja; }
+    <span class="kw">public override bool</span> Withdraw(<span class="ty">decimal</span> m) {
+        <span class="kw">if</span>(m&gt;<span class="nu">10_000_000</span> &amp;&amp; _tasdiqDarajasi &lt; <span class="nu">3</span>)
+        { Console.WriteLine(<span class="st">"Direktor tasdiq kerak!"</span>); <span class="kw">return false</span>; }
+        <span class="kw">if</span>(m&gt;_balans) <span class="kw">return false</span>;
+        _balans -= m; <span class="kw">return true</span>;
+    }
+}
+
+<span class="cm">// LSP: BankAccount o'rniga istalgan voris ishlatsa bo'ladi</span>
+<span class="ty">BankAccount</span>[] hisoblar = {
+    <span class="kw">new</span> <span class="ty">SavingsAccount</span>(<span class="st">"SAV-001"</span>, <span class="nu">5_000_000</span>, <span class="nu">12.5</span>, <span class="nu">15</span>),
+    <span class="kw">new</span> <span class="ty">CheckingAccount</span>(<span class="st">"CHK-001"</span>, <span class="nu">2_000_000</span>, <span class="nu">500_000</span>),
+    <span class="kw">new</span> <span class="ty">CorporateAccount</span>(<span class="st">"COR-001"</span>, <span class="nu">50_000_000</span>, <span class="nu">2</span>),
+};
+<span class="kw">foreach</span>(<span class="kw">var</span> h <span class="kw">in</span> hisoblar)
+    h.Deposit(<span class="nu">100_000</span>);  <span class="cm">// LSP: barchasi ishlaydi! ✅</span></pre>
+  </div>
+
+<div class="div">⬤ ⬤ ⬤</div>
+
+<!-- ═══ §3 POLIMORFIZM — 5 REAL MISOL ═══ -->
+<div class="ch c3" id="t3">
+  <div class="cs"><span class="ct">3-tamoyil</span></div>
+  <h2>Polimorfizm</h2>
+  <p class="csg">"Bitta buyruq — har bir ob'yekt o'ziga xos natija beradi."</p>
+
+  <div class="feyn">
+    <p class="an">"Kassir: 'To'lovni amalga oshir!' deydi. Click, Payme yoki Visa — kassir QAYSI ekanini bilmaydi. U shunchaki chaqiradi."</p>
+    <p><strong>Kuch:</strong> Yangi to'lov (UzCard) qo'shilsa — kassir kodi O'ZGARMAYDI. Faqat yangi sinf yoziladi.</p>
+  </div>
+
+  <div class="cmp">
+    <div class="cb2 bad"><div class="lbl">❌ if-else (yomon)</div>
+<pre style="font-size:11px;color:#6b1010">void Tolash(decimal s, string tur) {
+  if (tur == "Click") ...
+  else if (tur == "Payme") ...
+  else if (tur == "Visa") ...
+  // Yangi tur → bu kodni o'zgartir!
+}</pre></div>
+    <div class="cb2 good"><div class="lbl">✅ Polimorfizm (yaxshi)</div>
+<pre style="font-size:11px;color:#166534">void Tolash(TolovTizimi t, decimal s) {
+  t.TolovniAmalgaOshir(s); // 1 qator!
+  // Yangi tur → faqat yangi sinf
+  // Bu kod HECH QACHON o'zgarmaydi!
+}</pre></div>
+  </div>
+
+  <!-- MISOL 1: TolovTizimi -->
+  <div class="pew">
+    <div class="peh"><span class="pn">Misol 1</span><span class="pt">💳 To'lov tizimlari: Click, Payme, Visa</span></div>
+    <div class="ped">
+      <svg viewBox="0 0 760 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+        <defs><marker id="ar1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+        <!-- Store -->
+        <rect x="5" y="100" width="118" height="62" rx="7" fill="#f0ede4" stroke="#888" stroke-width="1.5"/>
+        <text x="64" y="122" text-anchor="middle" font-size="20">🛒</text>
+        <text x="64" y="140" text-anchor="middle" fill="#333" font-size="9" font-weight="700">DO'KON/KASSIR</text>
+        <text x="64" y="153" text-anchor="middle" fill="#555" font-size="8">t.TolovniAmalgaOshir()</text>
+        <line x1="123" y1="131" x2="160" y2="131" stroke="#1a7a3e" stroke-width="2" marker-end="url(#ar1)"/>
+        <!-- Abstract -->
+        <rect x="160" y="88" width="152" height="86" rx="7" fill="#edf7f1" stroke="#1a7a3e" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="236" y="108" text-anchor="middle" fill="#1a7a3e" font-size="9.5" font-weight="700">«abstract»</text>
+        <text x="236" y="123" text-anchor="middle" fill="#1a7a3e" font-size="10.5" font-weight="700">TolovTizimi</text>
+        <line x1="160" y1="130" x2="312" y2="130" stroke="#1a7a3e" stroke-width="1"/>
+        <text x="236" y="146" text-anchor="middle" fill="#2d6b3e" font-size="9">TolovniAmalgaOshir</text>
+        <text x="236" y="159" text-anchor="middle" fill="#2d6b3e" font-size="9">(decimal summa) abstract</text>
+        <line x1="312" y1="112" x2="366" y2="44" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <line x1="312" y1="131" x2="366" y2="131" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <line x1="312" y1="150" x2="366" y2="218" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <!-- Click -->
+        <rect x="366" y="8" width="140" height="72" rx="7" fill="#1877f2"/>
+        <circle cx="396" cy="44" r="18" fill="#fff" opacity=".2"/>
+        <text x="396" y="50" text-anchor="middle" fill="white" font-size="16" font-weight="900">C</text>
+        <text x="438" y="34" fill="white" font-size="10" font-weight="700">ClickTolov</text>
+        <text x="438" y="50" fill="#c0d8ff" font-size="8.5">override</text>
+        <text x="438" y="65" fill="#c0d8ff" font-size="8">"Click orqali yechildi"</text>
+        <!-- Payme -->
+        <rect x="366" y="95" width="140" height="72" rx="7" fill="#00b074"/>
+        <circle cx="396" cy="131" r="18" fill="#fff" opacity=".2"/>
+        <text x="396" y="137" text-anchor="middle" fill="white" font-size="16" font-weight="900">P</text>
+        <text x="438" y="121" fill="white" font-size="10" font-weight="700">PaymeTolov</text>
+        <text x="438" y="137" fill="#c0ffd0" font-size="8.5">override</text>
+        <text x="438" y="152" fill="#c0ffd0" font-size="8">"Payme orqali yechildi"</text>
+        <!-- Visa -->
+        <rect x="366" y="182" width="140" height="72" rx="7" fill="#1a1f71"/>
+        <rect x="378" y="200" width="36" height="22" rx="3" fill="#e8cc70"/>
+        <text x="396" y="216" text-anchor="middle" fill="#1a1f71" font-size="8" font-weight="900">VISA</text>
+        <text x="438" y="208" fill="white" font-size="10" font-weight="700">VisaTolov</text>
+        <text x="438" y="224" fill="#c0c8ff" font-size="8.5">override</text>
+        <text x="438" y="239" fill="#c0c8ff" font-size="8">"Visa kartasidan yechildi"</text>
+        <!-- Outputs -->
+        <line x1="506" y1="44" x2="540" y2="44" stroke="#888" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <line x1="506" y1="131" x2="540" y2="131" stroke="#888" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <line x1="506" y1="218" x2="540" y2="218" stroke="#888" stroke-width="1.5" marker-end="url(#ar1)"/>
+        <rect x="540" y="28" width="215" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="647" y="48" text-anchor="middle" fill="#0a4020" font-size="9">✅ 50000 so'm Click orqali yechildi</text>
+        <rect x="540" y="115" width="215" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="647" y="135" text-anchor="middle" fill="#0a4020" font-size="9">✅ 50000 so'm Payme orqali yechildi</text>
+        <rect x="540" y="202" width="215" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="647" y="222" text-anchor="middle" fill="#0a4020" font-size="9">✅ 50000 dollar Visa kartasidan yechildi</text>
+      </svg>
+    </div>
+    <div class="pec"><p>Barcha to'lov tizimlari <code>TolovTizimi</code> dan vorislik oladi. Kassir qaysi tizim ekanligini bilmaydi.</p></div>
+<pre><span class="kw">public abstract class</span> <span class="ty">TolovTizimi</span> {
+    <span class="kw">public abstract void</span> TolovniAmalgaOshir(<span class="ty">decimal</span> summa);
+}
+<span class="kw">public class</span> <span class="ty">ClickTolov</span> : <span class="ty">TolovTizimi</span> {
+    <span class="kw">public override void</span> TolovniAmalgaOshir(<span class="ty">decimal</span> summa) =&gt;
+        Console.WriteLine(<span class="st">$"{summa} so'm Click orqali yechildi."</span>);
+}
+<span class="kw">public class</span> <span class="ty">PaymeTolov</span> : <span class="ty">TolovTizimi</span> {
+    <span class="kw">public override void</span> TolovniAmalgaOshir(<span class="ty">decimal</span> summa) =&gt;
+        Console.WriteLine(<span class="st">$"{summa} so'm Payme orqali yechildi."</span>);
+}
+<span class="kw">public class</span> <span class="ty">VisaTolov</span> : <span class="ty">TolovTizimi</span> {
+    <span class="kw">public override void</span> TolovniAmalgaOshir(<span class="ty">decimal</span> summa) =&gt;
+        Console.WriteLine(<span class="st">$"{summa} dollar Visa kartasidan yechildi."</span>);
+}
+<span class="cm">// Foydalanish — POLIMORFIZM KUCHI:</span>
+<span class="ty">TolovTizimi</span> t = <span class="kw">new</span> <span class="ty">ClickTolov</span>();
+t.TolovniAmalgaOshir(<span class="nu">50_000</span>);   <span class="cm">// bitta qator, har doim ishlaydi!</span>
+<span class="cm">// Yangi UzCardTolov → bu kod O'ZGARMAYDI!</span></pre>
+    <div class="pi"><strong>💡</strong> <code>TolovTizimi t</code> qaysi tizim ekanligini bilmaydi. Runtime da C# o'zi aniqlaydi.</div>
+  </div>
+
+  <!-- MISOL 2: IXabarYuboruvchi -->
+  <div class="pew">
+    <div class="peh"><span class="pn">Misol 2</span><span class="pt">📬 Xabar yuboruvchilar: Telegram, Email, SMS — foreach polimorfizm</span></div>
+    <div class="ped">
+      <svg viewBox="0 0 760 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+        <defs><marker id="ar2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+        <!-- Tizim -->
+        <rect x="5" y="100" width="118" height="62" rx="7" fill="#fff0f0" stroke="#b53030" stroke-width="1.5"/>
+        <text x="64" y="122" text-anchor="middle" font-size="20">🔔</text>
+        <text x="64" y="140" text-anchor="middle" fill="#b53030" font-size="9" font-weight="700">TIZIM</text>
+        <text x="64" y="153" text-anchor="middle" fill="#555" font-size="8">y.Yubor("Xabar")</text>
+        <!-- List box -->
+        <rect x="133" y="72" width="158" height="118" rx="7" fill="#e8f0fe" stroke="#4a7ad8" stroke-width="1.5"/>
+        <text x="212" y="92" text-anchor="middle" fill="#4a7ad8" font-size="9" font-weight="700">List&lt;IXabarYuboruvchi&gt;</text>
+        <line x1="133" y1="97" x2="291" y2="97" stroke="#4a7ad8" stroke-width="1"/>
+        <rect x="143" y="102" width="138" height="20" rx="3" fill="#2196f3" opacity=".15"/>
+        <text x="212" y="116" text-anchor="middle" fill="#1565c0" font-size="8.5">TelegramXabar</text>
+        <rect x="143" y="126" width="138" height="20" rx="3" fill="#2196f3" opacity=".15"/>
+        <text x="212" y="140" text-anchor="middle" fill="#1565c0" font-size="8.5">EmailXabar</text>
+        <rect x="143" y="150" width="138" height="20" rx="3" fill="#2196f3" opacity=".15"/>
+        <text x="212" y="164" text-anchor="middle" fill="#1565c0" font-size="8.5">SmsXabar</text>
+        <line x1="123" y1="131" x2="131" y2="131" stroke="#4a7ad8" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <text x="127" y="126" text-anchor="middle" fill="#4a7ad8" font-size="7.5">foreach</text>
+        <line x1="291" y1="102" x2="348" y2="44" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <line x1="291" y1="136" x2="348" y2="136" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <line x1="291" y1="160" x2="348" y2="222" stroke="#2d6b3e" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <!-- Telegram -->
+        <rect x="348" y="10" width="140" height="68" rx="7" fill="#229ED9"/>
+        <circle cx="378" cy="44" r="18" fill="#0088cc"/>
+        <text x="378" y="50" text-anchor="middle" fill="white" font-size="14" font-weight="700">✈</text>
+        <text x="434" y="34" fill="white" font-size="10" font-weight="700">TelegramXabar</text>
+        <text x="434" y="50" fill="#c0e8ff" font-size="8.5">Yubor() override</text>
+        <text x="434" y="64" fill="#c0e8ff" font-size="8">"Telegram: ..."</text>
+        <!-- Email -->
+        <rect x="348" y="102" width="140" height="68" rx="7" fill="#e65100"/>
+        <rect x="358" y="118" width="36" height="24" rx="3" fill="#fff" opacity=".2"/>
+        <path d="M358,118 L376,130 L394,118" fill="none" stroke="white" stroke-width="1.5"/>
+        <text x="434" y="122" fill="white" font-size="10" font-weight="700">EmailXabar</text>
+        <text x="434" y="138" fill="#ffc0a0" font-size="8.5">Yubor() override</text>
+        <text x="434" y="152" fill="#ffc0a0" font-size="8">"Email: ..."</text>
+        <!-- SMS -->
+        <rect x="348" y="190" width="140" height="62" rx="7" fill="#1a7a3e"/>
+        <rect x="358" y="206" width="36" height="24" rx="5" fill="#fff" opacity=".2"/>
+        <text x="376" y="223" text-anchor="middle" fill="white" font-size="13">💬</text>
+        <text x="434" y="210" fill="white" font-size="10" font-weight="700">SmsXabar</text>
+        <text x="434" y="226" fill="#c0ffd0" font-size="8.5">Yubor() override</text>
+        <text x="434" y="240" fill="#c0ffd0" font-size="8">"SMS: ..."</text>
+        <!-- Outputs -->
+        <line x1="488" y1="44" x2="516" y2="44" stroke="#888" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <line x1="488" y1="136" x2="516" y2="136" stroke="#888" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <line x1="488" y1="221" x2="516" y2="221" stroke="#888" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <rect x="516" y="28" width="238" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="635" y="48" text-anchor="middle" fill="#0a4020" font-size="9">Telegram: Hisobingiz to'ldirildi!</text>
+        <rect x="516" y="120" width="238" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="635" y="140" text-anchor="middle" fill="#0a4020" font-size="9">Email: Hisobingiz to'ldirildi!</text>
+        <rect x="516" y="205" width="238" height="32" rx="5" fill="#c8f0d8" stroke="#1a7a3e"/>
+        <text x="635" y="225" text-anchor="middle" fill="#0a4020" font-size="9">SMS: Hisobingiz to'ldirildi!</text>
+      </svg>
+    </div>
+    <div class="pec"><p>List da turli ob'yektlar. Foreach bitta qator bilan barchasiga xabar yuboradi.</p></div>
+<pre><span class="kw">public interface</span> <span class="ty">IXabarYuboruvchi</span> { <span class="ty">void</span> Yubor(<span class="ty">string</span> xabar); }
+
+<span class="kw">public class</span> <span class="ty">TelegramXabar</span> : <span class="ty">IXabarYuboruvchi</span> {
+    <span class="kw">public void</span> Yubor(<span class="ty">string</span> x) =&gt; Console.WriteLine(<span class="st">$"Telegram: {x}"</span>);
+}
+<span class="kw">public class</span> <span class="ty">EmailXabar</span> : <span class="ty">IXabarYuboruvchi</span> {
+    <span class="kw">public void</span> Yubor(<span class="ty">string</span> x) =&gt; Console.WriteLine(<span class="st">$"Email: {x} pochtaga yuborildi."</span>);
+}
+<span class="kw">public class</span> <span class="ty">SmsXabar</span> : <span class="ty">IXabarYuboruvchi</span> {
+    <span class="kw">public void</span> Yubor(<span class="ty">string</span> x) =&gt; Console.WriteLine(<span class="st">$"SMS: {x} telefon raqamiga yuborildi."</span>);
+}
+
+List&lt;<span class="ty">IXabarYuboruvchi</span>&gt; yuboruvchilar = <span class="kw">new</span>()
+    { <span class="kw">new</span> <span class="ty">TelegramXabar</span>(), <span class="kw">new</span> <span class="ty">EmailXabar</span>(), <span class="kw">new</span> <span class="ty">SmsXabar</span>() };
+
+<span class="kw">foreach</span> (<span class="kw">var</span> y <span class="kw">in</span> yuboruvchilar)
+    y.Yubor(<span class="st">"Hisobingiz to'ldirildi!"</span>); <span class="cm">// Polimorfik chaqiruv</span></pre>
+    <div class="pi"><strong>💡</strong> Yangi kanal (WhatsApp) qo'shilsa — faqat yangi sinf + listga qo'shish. foreach O'ZGARMAYDI!</div>
+  </div>
+
+  <!-- MISOL 3: ReportExporter -->
+  <div class="pew">
+    <div class="peh"><span class="pn">Misol 3</span><span class="pt">📄 Hisobot eksportchilari: PDF, Excel, JSON</span></div>
+    <div class="ped">
+      <svg viewBox="0 0 760 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+        <defs><marker id="ar3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+        <rect x="5" y="92" width="118" height="58" rx="7" fill="#f0ede4" stroke="#888" stroke-width="1.5"/>
+        <text x="64" y="114" text-anchor="middle" font-size="20">📊</text>
+        <text x="64" y="132" text-anchor="middle" fill="#333" font-size="9" font-weight="700">MA'LUMOT</text>
+        <text x="64" y="145" text-anchor="middle" fill="#555" font-size="8">e.Export(data)</text>
+        <line x1="123" y1="121" x2="158" y2="121" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+        <rect x="158" y="82" width="150" height="78" rx="7" fill="#fff9e6" stroke="#e8cc70" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="233" y="101" text-anchor="middle" fill="#8b6010" font-size="9.5" font-weight="700">«abstract»</text>
+        <text x="233" y="116" text-anchor="middle" fill="#8b6010" font-size="10.5" font-weight="700">ReportExporter</text>
+        <line x1="158" y1="122" x2="308" y2="122" stroke="#e8cc70" stroke-width="1"/>
+        <text x="233" y="138" text-anchor="middle" fill="#a07020" font-size="9">Export(string data)</text>
+        <text x="233" y="151" text-anchor="middle" fill="#a07020" font-size="8.5">abstract</text>
+        <line x1="308" y1="105" x2="360" y2="44" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <line x1="308" y1="121" x2="360" y2="121" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <line x1="308" y1="140" x2="360" y2="200" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <!-- PDF -->
+        <rect x="360" y="10" width="138" height="68" rx="7" fill="#e53935"/>
+        <rect x="370" y="18" width="28" height="36" rx="3" fill="#fff" opacity=".85"/>
+        <path d="M384,18 L398,30 L398,54 L370,54 L370,18Z" fill="#fff" opacity=".85"/>
+        <polygon points="384,18 398,18 398,30 384,30" fill="#ffcdd2"/>
+        <text x="386" y="43" fill="#e53935" font-size="6" font-weight="700">PDF</text>
+        <text x="422" y="34" fill="white" font-size="10" font-weight="700">PdfExporter</text>
+        <text x="422" y="50" fill="#ffcdd2" font-size="8">"PDF fayl generatsiya</text>
+        <text x="422" y="63" fill="#ffcdd2" font-size="8"> qilindi."</text>
+        <!-- Excel -->
+        <rect x="360" y="87" width="138" height="68" rx="7" fill="#217346"/>
+        <rect x="370" y="97" width="28" height="36" rx="3" fill="#fff" opacity=".15"/>
+        <line x1="378" y1="103" x2="390" y2="103" stroke="white" stroke-width="1" opacity=".6"/>
+        <line x1="378" y1="110" x2="390" y2="110" stroke="white" stroke-width="1" opacity=".6"/>
+        <line x1="378" y1="117" x2="390" y2="117" stroke="white" stroke-width="1" opacity=".6"/>
+        <line x1="383" y1="103" x2="383" y2="123" stroke="white" stroke-width="1" opacity=".6"/>
+        <text x="422" y="112" fill="white" font-size="10" font-weight="700">ExcelExporter</text>
+        <text x="422" y="128" fill="#a0ffc0" font-size="8">"Excel jadvali</text>
+        <text x="422" y="141" fill="#a0ffc0" font-size="8"> shakllantirildi."</text>
+        <!-- JSON -->
+        <rect x="360" y="164" width="138" height="68" rx="7" fill="#f57c00"/>
+        <rect x="370" y="174" width="28" height="36" rx="3" fill="#fff" opacity=".15"/>
+        <text x="384" y="196" text-anchor="middle" fill="white" font-size="14" font-weight="700">{}</text>
+        <text x="422" y="190" fill="white" font-size="10" font-weight="700">JsonExporter</text>
+        <text x="422" y="206" fill="#ffe0b0" font-size="8">"JSON formatida</text>
+        <text x="422" y="219" fill="#ffe0b0" font-size="8"> ma'lumot uzatildi."</text>
+        <!-- Outputs -->
+        <line x1="498" y1="44" x2="525" y2="44" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <line x1="498" y1="121" x2="525" y2="121" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <line x1="498" y1="198" x2="525" y2="198" stroke="#888" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <rect x="525" y="28" width="228" height="32" rx="5" fill="#ffebee" stroke="#e53935"/>
+        <text x="639" y="48" text-anchor="middle" fill="#b71c1c" font-size="9">📄 PDF fayl generatsiya qilindi</text>
+        <rect x="525" y="105" width="228" height="32" rx="5" fill="#e8f5e9" stroke="#217346"/>
+        <text x="639" y="125" text-anchor="middle" fill="#1b5e20" font-size="9">📊 Excel jadvali shakllantirildi</text>
+        <rect x="525" y="182" width="228" height="32" rx="5" fill="#fff3e0" stroke="#f57c00"/>
+        <text x="639" y="202" text-anchor="middle" fill="#bf360c" font-size="9">📋 JSON formatida uzatildi</text>
+      </svg>
+    </div>
+    <div class="pec"><p>Bir xil <code>Export(data)</code> — har xil natija. Yangi format (Word, CSV) → faqat yangi sinf.</p></div>
+<pre><span class="kw">public abstract class</span> <span class="ty">ReportExporter</span> {
+    <span class="kw">public abstract void</span> Export(<span class="ty">string</span> data);
+}
+<span class="kw">public class</span> <span class="ty">PdfExporter</span>:<span class="ty">ReportExporter</span>{<span class="kw">public override void</span> Export(<span class="ty">string</span> d)=>Console.WriteLine(<span class="st">"PDF fayl generatsiya qilindi."</span>);}
+<span class="kw">public class</span> <span class="ty">ExcelExporter</span>:<span class="ty">ReportExporter</span>{<span class="kw">public override void</span> Export(<span class="ty">string</span> d)=>Console.WriteLine(<span class="st">"Excel jadvali shakllantirildi."</span>);}
+<span class="kw">public class</span> <span class="ty">JsonExporter</span>:<span class="ty">ReportExporter</span>{<span class="kw">public override void</span> Export(<span class="ty">string</span> d)=>Console.WriteLine(<span class="st">"JSON formatida ma'lumot uzatildi."</span>);}
+
+<span class="ty">ReportExporter</span>[] eks = {<span class="kw">new</span> <span class="ty">PdfExporter</span>(),<span class="kw">new</span> <span class="ty">ExcelExporter</span>(),<span class="kw">new</span> <span class="ty">JsonExporter</span>()};
+<span class="kw">foreach</span>(<span class="kw">var</span> e <span class="kw">in</span> eks) e.Export(<span class="st">"{ employees: [...] }"</span>); <span class="cm">// ← polimorfizm!</span></pre>
+    <div class="pi"><strong>💡 Real hayotda:</strong> Crystal Reports, SSRS, Power BI — bir klik: PDF, Excel, CSV!</div>
+  </div>
+
+  <!-- MISOL 4: Logger -->
+  <div class="pew">
+    <div class="peh"><span class="pn">Misol 4</span><span class="pt">📋 Logger tizimlari: Fayl, Database, Slack</span></div>
+    <div class="ped">
+      <svg viewBox="0 0 760 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+        <defs><marker id="ar4" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+        <rect x="5" y="88" width="115" height="58" rx="7" fill="#fff0f0" stroke="#b53030" stroke-width="1.5"/>
+        <text x="62" y="110" text-anchor="middle" font-size="20">⚠️</text>
+        <text x="62" y="128" text-anchor="middle" fill="#b53030" font-size="8.5" font-weight="700">XATOLIK YUZAGA KELDI!</text>
+        <text x="62" y="141" text-anchor="middle" fill="#555" font-size="8">l.Log(message)</text>
+        <line x1="120" y1="117" x2="153" y2="117" stroke="#b53030" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="153" y="78" width="148" height="78" rx="7" fill="#1e2030" stroke="#c099ff" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="227" y="98" text-anchor="middle" fill="#c099ff" font-size="9.5" font-weight="700">«abstract»</text>
+        <text x="227" y="113" text-anchor="middle" fill="#c099ff" font-size="10.5" font-weight="700">Logger</text>
+        <line x1="153" y1="118" x2="301" y2="118" stroke="#636da6" stroke-width="1"/>
+        <text x="227" y="133" text-anchor="middle" fill="#c8d3f5" font-size="9">Log(string message)</text>
+        <text x="227" y="146" text-anchor="middle" fill="#636da6" font-size="8.5">abstract</text>
+        <line x1="301" y1="100" x2="352" y2="40" stroke="#636da6" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <line x1="301" y1="117" x2="352" y2="117" stroke="#636da6" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <line x1="301" y1="134" x2="352" y2="192" stroke="#636da6" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <!-- File -->
+        <rect x="352" y="8" width="138" height="64" rx="7" fill="#455a64"/>
+        <rect x="362" y="16" width="24" height="32" rx="2" fill="#fff" opacity=".85"/>
+        <path d="M374,16 L386,26 L386,48 L362,48 L362,16Z" fill="#fff" opacity=".85"/>
+        <polygon points="374,16 386,16 386,26 374,26" fill="#90a4ae"/>
+        <text x="426" y="30" fill="white" font-size="10" font-weight="700">FileLogger</text>
+        <text x="426" y="46" fill="#b0bec5" font-size="8">[Fayl]: DateTime - msg</text>
+        <text x="426" y="60" fill="#b0bec5" font-size="8">override</text>
+        <!-- DB -->
+        <rect x="352" y="85" width="138" height="64" rx="7" fill="#1565c0"/>
+        <ellipse cx="380" cy="105" rx="16" ry="5" fill="#42a5f5"/>
+        <rect x="364" y="105" width="32" height="24" fill="#1976d2"/>
+        <ellipse cx="380" cy="129" rx="16" ry="5" fill="#42a5f5"/>
+        <ellipse cx="380" cy="117" rx="16" ry="5" fill="#2196f3"/>
+        <text x="426" y="105" fill="white" font-size="10" font-weight="700">DatabaseLogger</text>
+        <text x="426" y="122" fill="#90caf9" font-size="8">[SQL DB]: Logs jadvaliga</text>
+        <text x="426" y="136" fill="#90caf9" font-size="8">yozildi. override</text>
+        <!-- Slack -->
+        <rect x="352" y="162" width="138" height="60" rx="7" fill="#4a154b"/>
+        <rect x="362" y="172" width="32" height="32" rx="5" fill="#e01e5a"/>
+        <text x="378" y="194" text-anchor="middle" fill="white" font-size="18" font-weight="900">#</text>
+        <text x="426" y="185" fill="white" font-size="10" font-weight="700">SlackLogger</text>
+        <text x="426" y="202" fill="#e0b0e0" font-size="8">[Slack]: Admin kanaliga</text>
+        <text x="426" y="215" fill="#e0b0e0" font-size="8">xabar yuborildi. override</text>
+        <!-- Outputs -->
+        <line x1="490" y1="40" x2="516" y2="40" stroke="#888" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <line x1="490" y1="117" x2="516" y2="117" stroke="#888" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <line x1="490" y1="192" x2="516" y2="192" stroke="#888" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <rect x="516" y="26" width="238" height="28" rx="5" fill="#eceff1" stroke="#455a64"/>
+        <text x="635" y="44" text-anchor="middle" fill="#37474f" font-size="9">[Fayl]: 2025-01-01 - Xato yuz berdi</text>
+        <rect x="516" y="103" width="238" height="28" rx="5" fill="#e3f2fd" stroke="#1565c0"/>
+        <text x="635" y="121" text-anchor="middle" fill="#0d47a1" font-size="9">[SQL DB]: Xatolik Logs jadvaliga yozildi</text>
+        <rect x="516" y="178" width="238" height="28" rx="5" fill="#f3e5f5" stroke="#4a154b"/>
+        <text x="635" y="196" text-anchor="middle" fill="#4a154b" font-size="9">[Slack]: Admin kanaliga xabar yuborildi</text>
+      </svg>
+    </div>
+    <div class="pec"><p>Bir xatolik — bir vaqtda faylga, bazaga va Slack ga yoziladi. Yangi logger (Teams) → bitta sinf.</p></div>
+<pre><span class="kw">public abstract class</span> <span class="ty">Logger</span> {
+    <span class="kw">public abstract void</span> Log(<span class="ty">string</span> message);
+}
+<span class="kw">public class</span> <span class="ty">FileLogger</span>:<span class="ty">Logger</span>{<span class="kw">public override void</span> Log(<span class="ty">string</span> m)=>Console.WriteLine(<span class="st">$"[Fayl]: {DateTime.Now} - {m}"</span>);}
+<span class="kw">public class</span> <span class="ty">DatabaseLogger</span>:<span class="ty">Logger</span>{<span class="kw">public override void</span> Log(<span class="ty">string</span> m)=>Console.WriteLine(<span class="st">$"[SQL DB]: Xatolik 'Logs' jadvaliga yozildi: {m}"</span>);}
+<span class="kw">public class</span> <span class="ty">SlackLogger</span>:<span class="ty">Logger</span>{<span class="kw">public override void</span> Log(<span class="ty">string</span> m)=>Console.WriteLine(<span class="st">$"[Slack]: Admin kanaliga xabar yuborildi: {m}"</span>);}
+
+<span class="kw">var</span> loggerlar = <span class="kw">new</span> List&lt;<span class="ty">Logger</span>&gt; { <span class="kw">new</span> <span class="ty">FileLogger</span>(), <span class="kw">new</span> <span class="ty">DatabaseLogger</span>(), <span class="kw">new</span> <span class="ty">SlackLogger</span>() };
+loggerlar.ForEach(l => l.Log(<span class="st">"Kritik xato: DB ga ulanib bo'lmadi!"</span>));</pre>
+    <div class="pi"><strong>💡 Real hayotda:</strong> Serilog, NLog — File, Seq, Splunk, Elasticsearch ga bir vaqtda yozadi.</div>
+  </div>
+
+  <!-- MISOL 5: IShippingProvider -->
+  <div class="pew">
+    <div class="peh"><span class="pn">Misol 5</span><span class="pt">📦 Yetkazib berish: FedEx, DHL, UzPost — narx hisoblash</span></div>
+    <div class="ped">
+      <svg viewBox="0 0 760 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+        <defs><marker id="ar5" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#888"/></marker></defs>
+        <rect x="5" y="82" width="130" height="80" rx="7" fill="#f0ede4" stroke="#888" stroke-width="1.5"/>
+        <text x="70" y="104" text-anchor="middle" font-size="22">📦</text>
+        <text x="70" y="122" text-anchor="middle" fill="#333" font-size="8.5" font-weight="700">BUYURTMA</text>
+        <line x1="12" y1="130" x2="128" y2="130" stroke="#dedad0" stroke-width="1"/>
+        <text x="70" y="147" text-anchor="middle" fill="#555" font-size="8">vazn: 2.0 kg</text>
+        <text x="70" y="158" text-anchor="middle" fill="#555" font-size="8">masofa: 500 km</text>
+        <line x1="135" y1="122" x2="168" y2="122" stroke="#888" stroke-width="2" marker-end="url(#ar5)"/>
+        <rect x="168" y="80" width="148" height="84" rx="7" fill="#eff5fd" stroke="#1d5fa8" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="242" y="100" text-anchor="middle" fill="#1d5fa8" font-size="9.5" font-weight="700">«interface»</text>
+        <text x="242" y="115" text-anchor="middle" fill="#1d5fa8" font-size="10" font-weight="700">IShippingProvider</text>
+        <line x1="168" y1="120" x2="316" y2="120" stroke="#1d5fa8" stroke-width="1"/>
+        <text x="242" y="135" text-anchor="middle" fill="#2d5fa8" font-size="8.5">decimal CalculateCost(</text>
+        <text x="242" y="149" text-anchor="middle" fill="#2d5fa8" font-size="8.5">  double weight, distance)</text>
+        <line x1="316" y1="103" x2="365" y2="44" stroke="#1d5fa8" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <line x1="316" y1="122" x2="365" y2="122" stroke="#1d5fa8" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <line x1="316" y1="140" x2="365" y2="198" stroke="#1d5fa8" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <!-- FedEx -->
+        <rect x="365" y="10" width="148" height="68" rx="7" fill="#4d148c"/>
+        <rect x="374" y="20" width="42" height="24" rx="3" fill="#ff6600"/>
+        <text x="395" y="37" text-anchor="middle" fill="white" font-size="10" font-weight="900">FedEx</text>
+        <text x="448" y="30" fill="white" font-size="10" font-weight="700">FedExProvider</text>
+        <text x="448" y="46" fill="#d0b0ff" font-size="8">w×1.5 + d×0.1</text>
+        <text x="448" y="62" fill="#ff9" font-size="9" font-weight="700">= 53.0 USD</text>
+        <!-- DHL -->
+        <rect x="365" y="88" width="148" height="68" rx="7" fill="#D40511"/>
+        <rect x="374" y="98" width="42" height="24" rx="3" fill="#FFCC00"/>
+        <text x="395" y="115" text-anchor="middle" fill="#D40511" font-size="10" font-weight="900">DHL</text>
+        <text x="448" y="108" fill="white" font-size="10" font-weight="700">DHLProvider</text>
+        <text x="448" y="124" fill="#ffb0b0" font-size="8">w×2.0 + d×0.05</text>
+        <text x="448" y="140" fill="#ff9" font-size="9" font-weight="700">= 29.0 USD</text>
+        <!-- UzPost -->
+        <rect x="365" y="166" width="148" height="68" rx="7" fill="#1a5fa8"/>
+        <rect x="374" y="176" width="42" height="24" rx="3" fill="#e8cc70"/>
+        <text x="395" y="193" text-anchor="middle" fill="#1a5fa8" font-size="8.5" font-weight="900">UzPost</text>
+        <text x="448" y="186" fill="white" font-size="10" font-weight="700">UzPostProvider</text>
+        <text x="448" y="202" fill="#a0c8ff" font-size="8">w×0.8 + d×0.02</text>
+        <text x="448" y="218" fill="#ff9" font-size="9" font-weight="700">= 11.6 USD ← ENG ARZON!</text>
+        <!-- Outputs -->
+        <line x1="513" y1="44" x2="540" y2="44" stroke="#888" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <line x1="513" y1="122" x2="540" y2="122" stroke="#888" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <line x1="513" y1="200" x2="540" y2="200" stroke="#888" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <rect x="540" y="28" width="215" height="32" rx="5" fill="#ede0f5" stroke="#4d148c"/>
+        <text x="647" y="48" text-anchor="middle" fill="#4d148c" font-size="9">FedEx: CalculateCost(2.0, 500) = 53.0</text>
+        <rect x="540" y="106" width="215" height="32" rx="5" fill="#fff0f0" stroke="#D40511"/>
+        <text x="647" y="126" text-anchor="middle" fill="#D40511" font-size="9">DHL: CalculateCost(2.0, 500) = 29.0</text>
+        <rect x="540" y="184" width="215" height="32" rx="5" fill="#e8f0fe" stroke="#1a5fa8"/>
+        <text x="647" y="204" text-anchor="middle" fill="#1a5fa8" font-size="9">UzPost: CalculateCost(2.0, 500) = 11.6 ✅</text>
+      </svg>
+    </div>
+    <div class="pec"><p>Har bir provayderning narx formulasi boshqacha. Tizim qaysi ekanligini bilmasdan eng arzonini topadi.</p></div>
+<pre><span class="kw">public interface</span> <span class="ty">IShippingProvider</span> {
+    <span class="ty">decimal</span> CalculateCost(<span class="ty">double</span> weight, <span class="ty">double</span> distance);
+}
+<span class="kw">public class</span> <span class="ty">FedExProvider</span>:<span class="ty">IShippingProvider</span>{<span class="kw">public</span> <span class="ty">decimal</span> CalculateCost(<span class="ty">double</span> w,<span class="ty">double</span> d)=>(<span class="ty">decimal</span>)(w*<span class="nu">1.5</span>+d*<span class="nu">0.1</span>);}
+<span class="kw">public class</span> <span class="ty">DHLProvider</span>:<span class="ty">IShippingProvider</span>{<span class="kw">public</span> <span class="ty">decimal</span> CalculateCost(<span class="ty">double</span> w,<span class="ty">double</span> d)=>(<span class="ty">decimal</span>)(w*<span class="nu">2.0</span>+d*<span class="nu">0.05</span>);}
+<span class="kw">public class</span> <span class="ty">UzPostProvider</span>:<span class="ty">IShippingProvider</span>{<span class="kw">public</span> <span class="ty">decimal</span> CalculateCost(<span class="ty">double</span> w,<span class="ty">double</span> d)=>(<span class="ty">decimal</span>)(w*<span class="nu">0.8</span>+d*<span class="nu">0.02</span>);}
+
+<span class="kw">var</span> providers = <span class="kw">new</span> List&lt;<span class="ty">IShippingProvider</span>&gt;
+    { <span class="kw">new</span> <span class="ty">FedExProvider</span>(), <span class="kw">new</span> <span class="ty">DHLProvider</span>(), <span class="kw">new</span> <span class="ty">UzPostProvider</span>() };
+
+<span class="cm">// Eng arzonini polimorfizm orqali topamiz:</span>
+<span class="kw">var</span> eng_arzon = providers.MinBy(p => p.CalculateCost(<span class="nu">2.0</span>, <span class="nu">500</span>));
+Console.WriteLine(eng_arzon?.GetType().Name); <span class="cm">// UzPostProvider!</span></pre>
+    <div class="pi"><strong>💡 Real hayotda:</strong> Amazon, Uzum Bazar — FedEx API, DHL API barchasi bitta interfeys orqali.</div>
+  </div>
+</div>
+
+<div class="div">⬤ ⬤ ⬤</div>
+
+<!-- ═══ §4 ABSTRAKTSIYA ═══ -->
+<div class="ch c4" id="t4">
+  <div class="cs"><span class="ct">4-tamoyil</span></div>
+  <h2>Abstraktsiya</h2>
+  <p class="csg">"Foydalanuvchiga faqat keraklisini ko'rsat — ichki murakkablikni yashir."</p>
+  <div class="feyn">
+    <p class="an">"Avtomobil: gaz, tormoz, rul — 3 element ko'rasiz. Dvigatel, uzatma, 1000 detal — YASHIRIN."</p>
+    <p><strong>Farq:</strong> Abstraktsiya — "NIMA qiladi?" (interfeys). Inkapsulyatsiya — "QANDAY qiladi?" (yashirish).</p>
+  </div>
+  <div class="ex">
+    <div class="exh c4"><span class="etag">Misol 1</span><span class="etit">🖨️ IPrinter — Foydalanuvchi faqat Print() ko'radi</span></div>
+<pre><span class="kw">public interface</span> <span class="ty">IPrinter</span> {
+    <span class="ty">void</span>   Print(<span class="ty">string</span> hujjat);
+    <span class="ty">bool</span>   TayorMi { <span class="kw">get</span>; }
+}
+<span class="kw">public class</span> <span class="ty">LazerPrinter</span> : <span class="ty">IPrinter</span> {
+    <span class="kw">private int</span> _qogoz = <span class="nu">500</span>;
+    <span class="kw">public bool</span> TayorMi =&gt; _qogoz &gt; <span class="nu">0</span>;
+    <span class="kw">public void</span> Print(<span class="ty">string</span> h) {
+        <span class="kw">if</span> (!TayorMi) { Console.WriteLine(<span class="st">"Tayyor emas."</span>); <span class="kw">return</span>; }
+        TonerIsitish(); Uzatish(h); Qotirish(); <span class="cm">// ← foydalanuvchi bilmaydi!</span>
+        _qogoz--;
+        Console.WriteLine(<span class="st">$"✅ '{h}' chop etildi."</span>);
+    }
+    <span class="kw">private void</span> TonerIsitish() =&gt; Console.WriteLine(<span class="st">"  [Toner...]"</span>);
+    <span class="kw">private void</span> Uzatish(<span class="ty">string</span> h) =&gt; Console.WriteLine(<span class="st">$"  ['{h}'...]"</span>);
+    <span class="kw">private void</span> Qotirish() =&gt; Console.WriteLine(<span class="st">"  [Qotirish...]"</span>);
+}
+<span class="ty">IPrinter</span> p = <span class="kw">new</span> <span class="ty">LazerPrinter</span>();
+<span class="kw">if</span> (p.TayorMi) p.Print(<span class="st">"Semestr jadvali"</span>);</pre>
+  </div>
+</div>
+
+<div class="div">⬤ ⬤ ⬤</div>
+
+<!-- ═══ §5 SINTEZ ═══ -->
+<div id="t5" style="margin-top:70px">
+  <div class="cs" style="border-top-color:#444">
+    <span class="ct" style="background:#444">Sintez</span>
+  </div>
+  <h2>4 Tamoyil Birgalikda</h2>
+  <div class="ex syn">
+    <div class="exh" style="background:#2a2a3e"><span class="etag">Sintez</span><span class="etit">🛒 Onlayn do'kon: [I]+[V]+[P]+[A]</span></div>
+<pre><span class="cm">// [A] Interface shartnomasi</span>
+<span class="kw">public interface</span> <span class="ty">ITolov</span> { <span class="ty">bool</span> Tolash(<span class="ty">decimal</span> s); <span class="ty">string</span> Nomi { <span class="kw">get</span>; } }
+
+<span class="cm">// [V] Mahsulot ierarxiyasi</span>
+<span class="kw">public abstract class</span> <span class="ty">Mahsulot</span> {
+    <span class="kw">public string</span>  Nomi { <span class="kw">get</span>; } <span class="kw">public decimal</span> Narx { <span class="kw">get</span>; }
+    <span class="kw">protected</span> Mahsulot(<span class="ty">string</span> n,<span class="ty">decimal</span> p){Nomi=n;Narx=p;}
+    <span class="kw">public abstract decimal</span> YetkazishNarxi { <span class="kw">get</span>; }
+}
+<span class="kw">public class</span> <span class="ty">Kitob</span>:<span class="ty">Mahsulot</span>{<span class="kw">public</span> Kitob(<span class="ty">string</span> n,<span class="ty">decimal</span> p):base(n,p){}<span class="kw">public override decimal</span> YetkazishNarxi=><span class="nu">8_000</span>;}
+
+<span class="cm">// [I] Buyurtma holati nazorat qilinadi</span>
+<span class="kw">public class</span> <span class="ty">Buyurtma</span> {
+    <span class="kw">private</span> List&lt;<span class="ty">Mahsulot</span>&gt; _m = <span class="kw">new</span>();
+    <span class="kw">private string</span> _holat = <span class="st">"Yangi"</span>;
+    <span class="kw">public string</span>  Holat =&gt; _holat;          <span class="cm">// [I] faqat o'qish</span>
+    <span class="kw">public decimal</span> Jami  =&gt; _m.Sum(x =&gt; x.Narx + x.YetkazishNarxi); <span class="cm">// [P]</span>
+    <span class="kw">public void</span> QoshMahsulot(<span class="ty">Mahsulot</span> m) {
+        <span class="kw">if</span>(_holat != <span class="st">"Yangi"</span>) <span class="kw">throw new</span> InvalidOperationException(<span class="st">"Tasdiqlangan!"</span>);
+        _m.Add(m);
+    }
+    <span class="kw">public bool</span> Tasdiqlash(<span class="ty">ITolov</span> t) {    <span class="cm">// [A]+[P]</span>
+        <span class="kw">bool</span> ok = t.Tolash(Jami);
+        _holat = ok ? <span class="st">"Tasdiqlandi"</span> : <span class="st">"Rad"</span>; <span class="kw">return</span> ok;
+    }
+}
+<span class="cm">// [P] To'lov turlari</span>
+<span class="kw">public class</span> <span class="ty">PaymeTolov2</span>:<span class="ty">ITolov</span>{<span class="kw">public string</span> Nomi=><span class="st">"Payme"</span>;<span class="kw">public bool</span> Tolash(<span class="ty">decimal</span> s){Console.WriteLine(<span class="st">$"📱{s:N0}✅"</span>);<span class="kw">return true</span>;}}
+
+<span class="kw">var</span> b = <span class="kw">new</span> <span class="ty">Buyurtma</span>();
+b.QoshMahsulot(<span class="kw">new</span> <span class="ty">Kitob</span>(<span class="st">"C# Kitobi"</span>,<span class="nu">45_000</span>));
+Console.WriteLine(<span class="st">$"Jami: {b.Jami:N0}"</span>);    <span class="cm">// 53_000</span>
+b.Tasdiqlash(<span class="kw">new</span> <span class="ty">PaymeTolov2</span>());           <span class="cm">// [A][P]</span></pre>
+  </div>
+</div>
+
+<div class="div">⬤ ⬤ ⬤</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div id="qs">
+  <div class="qh">
+    <div class="kick">O'z-o'zini tekshirish</div>
+    <h2>20 ta Izohli Test</h2>
+    <p>Har bir javob tanlanganida — nima uchun to'g'ri yoki xato ekanligini ko'rasiz.</p>
+  </div>
+  <div class="qprog">
+    <span class="qpl" id="ptxt">1 / 20</span>
+    <div class="pbw"><div class="pb" id="pbar" style="width:5%"></div></div>
+  </div>
+  <div id="qc"></div>
+</div>
+
+<!-- RESULTS -->
+<div id="rs">
+  <div class="rh">
+    <div class="sr" id="sr">0/20</div>
+    <h2 id="rt">Test yakunlandi!</h2>
+    <p id="rp"></p>
+  </div>
+  <div class="ssg">
+    <div class="ss" style="border-top:3px solid #b53030"><div class="sl">Inkapsulyatsiya</div><div class="sn" id="sc1" style="color:#b53030">-</div></div>
+    <div class="ss" style="border-top:3px solid #1d5fa8"><div class="sl">Vorislik</div><div class="sn" id="sc2" style="color:#1d5fa8">-</div></div>
+    <div class="ss" style="border-top:3px solid #1a7a3e"><div class="sl">Polimorfizm</div><div class="sn" id="sc3" style="color:#1a7a3e">-</div></div>
+    <div class="ss" style="border-top:3px solid #7a2fa0"><div class="sl">Abstraktsiya</div><div class="sn" id="sc4" style="color:#7a2fa0">-</div></div>
+  </div>
+  <h3>Har bir savol tahlili</h3>
+  <div id="rl"></div>
+  <div style="text-align:center"><button class="btnr" onclick="restart()">🔄 Qaytadan boshlash</button></div>
+</div>
+
+<!-- MODAL -->
+<div class="mo" id="mod">
+  <div class="mb">
+    <div class="mi">📚</div>
+    <div class="mt2">Bu mavzuni qaytadan o'rganaylik</div>
+    <div class="ms" id="msub"></div>
+    <div class="mhint" id="mhint"></div>
+    <div class="mrh">Tashqi manbalar</div>
+    <div id="mlnks"></div>
+    <button class="mclose" onclick="closeM()">✓ Tushundim, davom etaman</button>
+  </div>
+</div>
+
+<!-- GLOSSARY -->
+<div class="glos">
+  <h3 style="margin-bottom:14px">📖 Asosiy atamalar</h3>
+  <table>
+    <tr><th>Termin</th><th>Ta'rif</th></tr>
+    <tr><td><code>private</code></td><td>Faqat sinf ichida ko'rinadigan maydon</td></tr>
+    <tr><td><code>public</code></td><td>Hamma joydan ko'rinadigan a'zo</td></tr>
+    <tr><td><code>virtual</code></td><td>Vorislar qayta yozishi mumkin bo'lgan metod</td></tr>
+    <tr><td><code>override</code></td><td>Voris sinfda baza metodini almashtirish</td></tr>
+    <tr><td><code>abstract</code></td><td>Tanasi yo'q metod — vorislar yozishi shart</td></tr>
+    <tr><td><code>interface</code></td><td>Faqat metod imzolarini belgilovchi shartnoma</td></tr>
+    <tr><td><code>base()</code></td><td>Baza sinfning konstruktorini chaqirish</td></tr>
+    <tr><td>is-a</td><td>Vorislik testi: "Bu — ning turidir?"</td></tr>
+    <tr><td>has-a</td><td>Kompozitsiya: "Bunda ... bor"</td></tr>
+  </table>
+</div>
+
+<footer>OOPning 4 Tamoyili · C# · Milliy Universitet, Toshkent · 2025</footer>
+</div>
+
+<script>
+var Q=[
+{s:"Inkapsulyatsiya",c:"#b53030",r:"#t1",
+ q:'Quyidagi kodda qaysi qator inkapsulyatsiya tamoyilini <u>buzadi</u>?',
+ code:'public class Talaba {\n    public string Ismi;       // A\n    private double _gpa;      // B\n    public double GPA {       // C\n        get => _gpa;\n        set { if(v>=0&&v<=4) _gpa=v; }\n    }\n    public int Kurs { get; }  // D\n}',
+ o:[
+  {t:"A — public string Ismi; — to'g'ridan-to'g'ri ochiq maydon",w:"TO'G'RI. public maydon — hech qanday tekshiruvsiz o'zgartiriladi. t.Ismi=null mumkin. Inkapsulyatsiyaga zid."},
+  {t:"B — private double _gpa; — yashirin maydon",w:"XATO. private _gpa — inkapsulyatsiyani TO'G'RI qo'llaydi."},
+  {t:"C — GPA xususiyatida tekshiruv bor",w:"XATO. set ichida 0-4 tekshiruvi bor — inkapsulyatsiyaning to'g'ri qo'llanishi."},
+  {t:"D — public int Kurs { get; } — faqat o'qish",w:"XATO. Faqat get — tashqaridan yozib bo'lmaydi. Xavfsiz."},
+ ],ans:0,
+ res:[{t:"Microsoft: Access Modifiers",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers"},{t:"W3Schools: C# Properties",u:"https://www.w3schools.com/cs/cs_properties.php"}]
+},
+{s:"Inkapsulyatsiya",c:"#b53030",r:"#t1",
+ q:"BankHisobi da balansni tashqaridan o'qish, lekin faqat sinf ichidan o'zgartirish mumkin. Qaysi yozuv to'g'ri?",
+ o:[
+  {t:"public decimal Balans { get; set; }",w:"XATO. set ham public — hisob.Balans=-999999 yozish mumkin."},
+  {t:"public decimal Balans;",w:"XATO. Ochiq maydon — xususiyatdan ham yomonroq."},
+  {t:"public decimal Balans { get; private set; }",w:"TO'G'RI! get — public (o'qish mumkin). set — private (faqat sinf ichidan). Aynan kerak."},
+  {t:"private decimal Balans { get; set; }",w:"XATO. private bo'lsa tashqaridan o'qib ham bo'lmaydi."},
+ ],ans:2,
+ res:[{t:"Microsoft: Properties in C#",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties"}]
+},
+{s:"Inkapsulyatsiya",c:"#b53030",r:"#t1",
+ q:"Qahramon sinfida HP hech qachon 0 dan past bo'lmasligi kerak. Bu invariantni qanday kafolatlash kerak?",
+ o:[
+  {t:"public int HP; — foydalanuvchi o'zi nazorat qilsin",w:"XATO. public bo'lsa — qahramon.HP=-1000000 yozish mumkin. Ishonchsiz."},
+  {t:"private int _hp; va ZararOl() da Math.Max(0, _hp-z)",w:"TO'G'RI! private + Math.Max(0,...) — HP ni 0 dan pastga tushishdan kafolatlaydi."},
+  {t:"public int HP { get; set; } — xususiyat yetarli",w:"XATO. set public bo'lsa — qahramon.HP=-999 yozish mumkin."},
+  {t:"HP ni konstruktorda belgilab, umuman o'zgartirmaslik",w:"XATO. O'yinda HP kamayishi va ko'payishi kerak."},
+ ],ans:1,
+ res:[{t:"Tutorialspoint: C# Encapsulation",u:"https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm"}]
+},
+{s:"Inkapsulyatsiya",c:"#b53030",r:"#t1",
+ q:"Faqat { get; } bo'lgan xususiyat nima anglatadi?",
+ o:[
+  {t:"Na o'qish, na yozish mumkin",w:"XATO. get bo'lsa — o'qish ishlaydi."},
+  {t:"Faqat yozish mumkin",w:"XATO. Faqat yozish uchun — faqat set bo'ladi."},
+  {t:"Faqat o'qish (read-only) — tashqaridan yozib bo'lmaydi",w:"TO'G'RI! { get; } faqat o'qish. Yozishga urinilsa kompilyatsiya xatosi."},
+  {t:"Kompilyatsiya xatosi — get va set ikkalasi shart",w:"XATO. Faqat get bo'lgan xususiyat valid."},
+ ],ans:2,
+ res:[{t:"Microsoft: Read-only properties",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties"}]
+},
+{s:"Inkapsulyatsiya",c:"#b53030",r:"#t1",
+ q:"Qaysi holat inkapsulyatsiyani TO'G'RI qo'llaydi?",
+ o:[
+  {t:"Barcha maydonlar public — foydalanish oson",w:"XATO. public maydonlar — inkapsulyatsiya yo'q. Ixtiyoriy qiymat yoziladi."},
+  {t:"Maydonlar private, metodlar/xususiyatlar orqali tekshiruv bilan kirish",w:"TO'G'RI! Klassik inkapsulyatsiya: private + nazoratli kirish. Invariantlar saqlanadi."},
+  {t:"Hamma narsa private — tashqaridan umuman kirish bo'lmaydi",w:"XATO. Hamma private bo'lsa — sinf tashqaridan foydasiz."},
+  {t:"Faqat metodlar, maydonlar bo'lmaydi",w:"XATO. Maydonlarsiz sinf holatini saqlay olmaydi."},
+ ],ans:1,
+ res:[{t:"Microsoft: OOP in C#",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/"}]
+},
+{s:"Vorislik",c:"#1d5fa8",r:"#t2",
+ q:"C# da vorislikni ifodalash uchun qaysi sintaksis ishlatiladi?",
+ o:[
+  {t:"class Talaba extends Shaxs { }",w:"XATO. extends — Java tilining sintaksisi. C# da yo'q."},
+  {t:"class Talaba implements Shaxs { }",w:"XATO. implements — Java da interfeys uchun."},
+  {t:"class Talaba : Shaxs { }",w:"TO'G'RI! C# da vorislik ikki nuqta (:) orqali."},
+  {t:"class Talaba inherits Shaxs { }",w:"XATO. inherits — VB.NET da. C# da bunday yo'q."},
+ ],ans:2,
+ res:[{t:"Microsoft: Inheritance in C#",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance"},{t:"W3Schools: C# Inheritance",u:"https://www.w3schools.com/cs/cs_inheritance.php"}]
+},
+{s:"Vorislik",c:"#1d5fa8",r:"#t2",
+ q:"abstract kalit so'zi bilan belgilangan metod haqida qaysi ifoda TO'G'RI?",
+ o:[
+  {t:"Baza sinfda tanasi bor, voris xohlasa qayta yozishi mumkin",w:"XATO. Bu virtual metodning ta'rifi. Abstract metod baza sinfda tanasiz."},
+  {t:"Baza sinfda tanasi yo'q, voris ALBATTA override qilishi shart",w:"TO'G'RI! abstract = tanasiz imzo. Voris override qilmasa — kompilyatsiya xatosi."},
+  {t:"Faqat private metodlarda ishlatiladi",w:"XATO. abstract metodlar private bo'la olmaydi."},
+  {t:"Bu metodni tashqaridan chaqirib bo'lmaydi",w:"XATO. public abstract metodlar tashqaridan chaqirilishi mumkin."},
+ ],ans:1,
+ res:[{t:"Microsoft: Abstract Classes",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members"}]
+},
+{s:"Vorislik",c:"#1d5fa8",r:"#t2",
+ q:"Voris sinfda : base(ismi, yoshi) nima vazifani bajaradi?",
+ o:[
+  {t:"Voris sinfga yangi konstruktor qo'shadi",w:"XATO. base() yangi konstruktor yaratmaydi."},
+  {t:"Baza sinfning konstruktorini chaqiradi va parametrlarni uzatadi",w:"TO'G'RI! : base(ismi, yoshi) baza sinfning mos konstruktorini chaqiradi."},
+  {t:"Baza sinfning barcha metodlarini o'chiradi",w:"XATO. base() metodlarni o'chirmaydi."},
+  {t:"Baza sinfdan yangi ob'yekt yaratadi",w:"XATO. base() yangi ob'yekt yaratmaydi."},
+ ],ans:1,
+ res:[{t:"Microsoft: base keyword",u:"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/base"}]
+},
+{s:"Vorislik",c:"#1d5fa8",r:"#t2",
+ q:"Qaysi holat vorislikni TO'G'RI qo'llaydi (is-a qoidasi)?",
+ o:[
+  {t:"class Mashina : Eshik — mashinada eshik bor",w:"XATO. Mashina eshik emas — bu has-a (mashinada eshik BOR)."},
+  {t:"class Shifokor : TibbiyXodim — shifokor tibbiy xodim turi",w:"TO'G'RI! 'Shifokor tibbiy xodimMI?' — Ha! is-a qoidasi."},
+  {t:"class Universitet : Talaba — universitetda talabalar bor",w:"XATO. Universitet Talaba emas — bu has-a."},
+  {t:"class Kitob : Kutubxona — kitob kutubxonada saqlanadi",w:"XATO. Kitob Kutubxona emas."},
+ ],ans:1,
+ res:[{t:"Microsoft: Inheritance",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance"}]
+},
+{s:"Vorislik",c:"#1d5fa8",r:"#t2",
+ q:"Voris sinf baza sinfning virtual metodini qayta yozish uchun qaysi kalit so'z?",
+ o:[
+  {t:"new — yangi metod qo'shadi",w:"XATO. new — baza metodni yashiradi, lekin polimorfizm ishlamaydi."},
+  {t:"virtual — virtual metod yaratadi",w:"XATO. virtual baza sinfda ishlatiladi, voris sinfda override kerak."},
+  {t:"override — baza virtual metodini qayta yozadi",w:"TO'G'RI! virtual (baza) + override (voris) = runtime polimorfizm."},
+  {t:"abstract — abstrakt metod yaratadi",w:"XATO. abstract tanasiz metod yaratadi."},
+ ],ans:2,
+ res:[{t:"Microsoft: override keyword",u:"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override"}]
+},
+{s:"Polimorfizm",c:"#1a7a3e",r:"#t3",
+ q:"Polimorfizmning asosiy afzalligi nima?",
+ o:[
+  {t:"Dastur tezroq ishlaydi",w:"XATO. Polimorfizm tezlikni emas, moslashuvchanlikni beradi."},
+  {t:"Turli ob'yektlarni bitta interfeys orqali boshqarish; yangi tur mavjud kodni o'zgartirmasdan qo'shiladi",w:"TO'G'RI! Ochiq-Yopiq Prinsip. UzCard qo'shilsa — kassir kodi O'ZGARMAYDI."},
+  {t:"Faqat bir xil turli ob'yektlarni listda saqlash",w:"XATO. Bir xil turlar uchun generics yetarli. Polimorfizm turli-xil ob'yektlar uchun."},
+  {t:"Dasturchi kamroq sinf yozadi",w:"XATO. Ko'proq sinf yoziladi, lekin kod sifati yaxshi."},
+ ],ans:1,
+ res:[{t:"Microsoft: Polymorphism",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism"},{t:"W3Schools: C# Polymorphism",u:"https://www.w3schools.com/cs/cs_polymorphism.php"}]
+},
+{s:"Polimorfizm",c:"#1a7a3e",r:"#t3",
+ q:"List<TolovTizimi> da Click, Payme, Visa ob'yektlari saqlanishi mumkin. Nima uchun?",
+ o:[
+  {t:"List<> har qanday narsani saqlaydi",w:"XATO. List<TolovTizimi> faqat TolovTizimi va uning vorislarini saqlaydi."},
+  {t:"Click, Payme, Visa — barchasi TolovTizimi dan vorislik olgan",w:"TO'G'RI! Vorislik (is-a): ClickTolov — TolovTizimi dir. Listda saqlanadi."},
+  {t:"C# da barcha sinflar bitta ro'yxatda saqlanadi",w:"XATO. Tipin mosligi kerak."},
+  {t:"Bu faqat interface bilan ishlaydi, abstract class bilan emas",w:"XATO. Abstract class bilan ham xuddi shunday ishlaydi."},
+ ],ans:1,
+ res:[{t:"Microsoft: Polymorphism",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism"}]
+},
+{s:"Polimorfizm",c:"#1a7a3e",r:"#t3",
+ q:"TolovTizimi tizimiga yangi UzCard provayderi qo'shish uchun nima qilish kerak?",
+ o:[
+  {t:"Barcha mavjud Click, Payme, Visa sinflarini o'zgartirish",w:"XATO. Mavjud sinflarni o'zgartirish shart emas — OCP buziladi."},
+  {t:"TolovTizimi abstrakt sinfiga yangi metod qo'shish",w:"XATO. Baza sinfga yangi metod qo'shilsa — barcha vorislar ham o'zgarishi kerak."},
+  {t:"Faqat UzCardTolov : TolovTizimi sinfi yoziladi, boshqa hech narsa o'zgarmaydi",w:"TO'G'RI! Polimorfizmning asosiy kuchi. Kassir kodi, foreach — hech narsa o'zgarmaydi!"},
+  {t:"foreach tsiklini o'zgartirish kerak",w:"XATO. foreach kodi har bir elementni polimorfik chaqiradi. Yangi sinf avtomatik ishlaydi."},
+ ],ans:2,
+ res:[{t:"Refactoring Guru: Open-Closed Principle",u:"https://refactoring.guru/replace-conditional-with-polymorphism"}]
+},
+{s:"Polimorfizm",c:"#1a7a3e",r:"#t3",
+ q:"Method overloading (bir xil nom, turli parametrlar) — bu qanday polimorfizm?",
+ o:[
+  {t:"Runtime polimorfizm — dastur ishlayotganda aniqlanadi",w:"XATO. Runtime — virtual/override orqali."},
+  {t:"Compile-time polimorfizm — kompilyatsiya vaqtida aniqlanadi",w:"TO'G'RI! Kompilyator parametr tipiga qarab qaysi metodini chaqirishni hal qiladi."},
+  {t:"Bu polimorfizmga kirmaydi",w:"XATO. Method overloading — static/compile-time polimorfizm."},
+  {t:"Interface polimorfizmi",w:"XATO. Interface polimorfizm — runtime. Overloading — compile-time."},
+ ],ans:1,
+ res:[{t:"Microsoft: Method Overloading",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods"}]
+},
+{s:"Polimorfizm",c:"#1a7a3e",r:"#t3",
+ q:"Nima uchun polimorfizm switch/if-else zanjiridan yaxshiroq?",
+ o:[
+  {t:"Polimorfizm tezroq ishlaydi",w:"XATO. Tezlik farqi minimal. Asosiy afzallik — kengaytiriluvchanlik."},
+  {t:"Yangi tur qo'shilganda switch/if-else ni o'zgartirish kerak; polimorfizmda — yo'q",w:"TO'G'RI! if-else da: har yangi turda kodni o'zgartirish kerak. Polimorfizmda: yangi sinf — hamma joyda ishlaydi."},
+  {t:"if-else da xatolik muqarrar",w:"XATO. if-else to'g'ri ishlashi mumkin. Lekin kengaytirish qiyin."},
+  {t:"Polimorfizmda kod kamroq bo'ladi",w:"XATO. Ko'proq sinf yoziladi, lekin kod sifatli."},
+ ],ans:1,
+ res:[{t:"Refactoring Guru: Replace Conditional with Polymorphism",u:"https://refactoring.guru/replace-conditional-with-polymorphism"}]
+},
+{s:"Abstraktsiya",c:"#7a2fa0",r:"#t4",
+ q:"Abstraktsiya va inkapsulyatsiya — bitta jumlada farqini belgilang.",
+ o:[
+  {t:"Hech qanday farq yo'q — ikkalasi bir xil",w:"XATO. Ikkalasi alohida tamoyil."},
+  {t:"Abstraktsiya — 'nima qiladi?' (interfeys), Inkapsulyatsiya — 'qanday qiladi?' (ichni yashirish)",w:"TO'G'RI! IPrinter.Print() — nima (abstraktsiya). LazerPrinter ichidagi private metodlar — qanday (inkapsulyatsiya)."},
+  {t:"Abstraktsiya — private maydonlar, Inkapsulyatsiya — interfeys",w:"XATO. Teskari. Private maydonlar — inkapsulyatsiya. Interfeys — abstraktsiya."},
+  {t:"Inkapsulyatsiya faqat vorislikda ishlatiladi",w:"XATO. Har ikkalasi mustaqil tamoyil."},
+ ],ans:1,
+ res:[{t:"Microsoft: OOP in C#",u:"https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/"}]
+},
+{s:"Abstraktsiya",c:"#7a2fa0",r:"#t4",
+ q:"interface va abstract class — qachon interfeys ishlatish to'g'riroq?",
+ o:[
+  {t:"Umumiy maydonlar ulashish kerak bo'lsa",w:"XATO. Umumiy maydonlar — abstract class uchun."},
+  {t:"Standart metod tanasi kerak bo'lsa",w:"XATO. Default implementatsiya — asosan abstract class uchun."},
+  {t:"Faqat xulq shartnomasi kerak, bir sinfga ko'p interfeys kerak bo'lsa",w:"TO'G'RI! C# da ko'p vorislik yo'q, lekin ko'p interfeys mumkin: class A : IB, IC, ID."},
+  {t:"Interfeys faqat bitta metod bo'lganda",w:"XATO. Interfeysda ixtiyoriy sondagi metodlar bo'lishi mumkin."},
+ ],ans:2,
+ res:[{t:"Microsoft: Interfaces (C#)",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/"},{t:"W3Schools: C# Interface",u:"https://www.w3schools.com/cs/cs_interface.php"}]
+},
+{s:"Abstraktsiya",c:"#7a2fa0",r:"#t4",
+ q:"abstract class Shakl { public abstract double Yuza(); } dan new Shakl() qilishga urinilsa nima bo'ladi?",
+ o:[
+  {t:"Ishlaydi — abstract sinf oddiy sinf bilan bir xil",w:"XATO. abstract sinfdan ob'yekt yaratib bo'lmaydi."},
+  {t:"Kompilyatsiya xatosi — abstract sinfdan ob'yekt yaratib bo'lmaydi",w:"TO'G'RI! 'Cannot create instance of abstract type Shakl' — kompilyator xatosi."},
+  {t:"Dastur ishlaydi, Yuza() chaqirilganda xato beradi",w:"XATO. Xato runtime da emas — kompilyatsiya vaqtida."},
+  {t:"Yuza() 0 qaytaradi",w:"XATO. Ob'yekt yaratilmaydi, Yuza() hech chaqirilmaydi."},
+ ],ans:1,
+ res:[{t:"Microsoft: Abstract Classes",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members"}]
+},
+{s:"Abstraktsiya",c:"#7a2fa0",r:"#t4",
+ q:"LazerPrinter va InkjetPrinter — ikkalasi IPrinter amalga oshiradi. Bu qaysi tamoyillarni ko'rsatadi?",
+ o:[
+  {t:"Faqat inkapsulyatsiya",w:"XATO. IPrinter — abstraktsiya. Bir xil Print() orqali har xil ishlash — polimorfizm."},
+  {t:"Faqat vorislik",w:"XATO. Interfeys amalga oshirish — vorislik emas."},
+  {t:"Abstraktsiya (IPrinter shartnoma) + Polimorfizm (bir xil Print() — har xil natija)",w:"TO'G'RI! IPrinter — abstraktsiya. Kod IPrinter tipida ishlaydi, qaysi printer ekanligini bilmaydi — polimorfizm."},
+  {t:"Bu OOP tamoyillariga kirmaydi",w:"XATO. Interfeys — abstraktsiyaning asosiy vositasi."},
+ ],ans:2,
+ res:[{t:"Microsoft: Interfaces",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/"}]
+},
+{s:"Abstraktsiya",c:"#7a2fa0",r:"#t4",
+ q:"IOmbor&lt;T&gt; interfeysi ishlatilgan TalabaXizmati — bu nima imkoniyat beradi?",
+ code:'public class TalabaXizmati {\n    private IOmbor<string> _ombor;\n    public TalabaXizmati(IOmbor<string> ombor)\n    { _ombor = ombor; }\n    public void Qoshish(string id, string ismi)\n    { _ombor.Saqlash(id, ismi); }\n}',
+ o:[
+  {t:"Faqat XotiradagiOmbor bilan ishlaydi",w:"XATO. TalabaXizmati IOmbor<T> bilan ishlaydi — qaysi amalga oshirish ekanligini bilmaydi."},
+  {t:"TalabaXizmati qaerda saqlanayotganini bilmaydi — xotirada, faylda, SQL — barchasi almashtiriladi, kod o'zgarmaydi",w:"TO'G'RI! Dependency Injection kuchi. Test uchun XotiradagiOmbor, produksiyada SQLOmbor — bir qator ham o'zgarmaydi!"},
+  {t:"Saqlash tezroq bo'ladi",w:"XATO. Interfeys tezlikni o'zgartirmaydi."},
+  {t:"Bu generic dasturlash, OOP bilan bog'liq emas",w:"XATO. Generic + OOP — kuchli kombinatsiya."},
+ ],ans:1,
+ res:[{t:"Microsoft: Dependency Injection",u:"https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection"},{t:"Microsoft: Interfaces",u:"https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/"}]
+}
+];
+
+var sel=new Array(20).fill(-1), cur=0;
+var K=['A','B','C','D'];
+
+function build(){
+  var c=document.getElementById('qc');
+  c.innerHTML='';
+  Q.forEach(function(q,i){
+    var d=document.createElement('div');
+    d.className='qcard'+(i===0?' on':'');
+    d.id='qd'+i;
+    var h='<span class="qbadge" style="background:'+q.c+'">'+q.s+'</span>';
+    h+='<div class="qnum">Savol '+(i+1)+' / 20</div>';
+    h+='<div class="qtxt">'+q.q+'</div>';
+    if(q.code) h+='<div class="qcode">'+q.code+'</div>';
+    h+='<div class="opts" id="opts'+i+'">';
+    q.o.forEach(function(o,j){
+      h+='<div class="opt" id="o'+i+'_'+j+'" onclick="pick('+i+','+j+')">';
+      h+='<span class="ok">'+K[j]+'</span>';
+      h+='<div class="oc"><span class="ot">'+o.t+'</span>';
+      h+='<div class="ow">'+o.w+'</div></div></div>';
+    });
+    h+='</div><div class="qnav">';
+    if(i<19) h+='<button class="qbtn btnx" id="nb'+i+'" onclick="nxt('+i+')" disabled>Keyingi &rarr;</button>';
+    else h+='<button class="qbtn btnx" id="nb'+i+'" onclick="done()" disabled>&#10003; Natija</button>';
+    h+='</div>';
+    d.innerHTML=h;
+    c.appendChild(d);
+  });
+}
+
+function pick(i,j){
+  if(sel[i]!==-1) return;
+  sel[i]=j;
+  var cor=Q[i].ans;
+  var opts=document.querySelectorAll('#opts'+i+' .opt');
+  opts.forEach(function(el,k){
+    el.classList.add('done');
+    if(k===cor) el.classList.add('ok');
+    else if(k===j) el.classList.add('ng');
+    else el.classList.add('sk');
+  });
+  document.getElementById('nb'+i).disabled=false;
+  if(j!==cor) modal(i);
+}
+
+function nxt(i){
+  document.getElementById('qd'+i).classList.remove('on');
+  var n=i+1;
+  document.getElementById('qd'+n).classList.add('on');
+  cur=n;
+  document.getElementById('ptxt').textContent=(n+1)+' / 20';
+  document.getElementById('pbar').style.width=((n+1)*5)+'%';
+  document.getElementById('qd'+n).scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function modal(i){
+  var q=Q[i];
+  document.getElementById('msub').textContent='Savol '+(i+1)+' — '+q.s;
+  document.getElementById('mhint').innerHTML='<strong>Bu mavzuni qayta o\'qing:</strong> <a href="'+q.r+'">'+q.s+' bo\'limi &uarr;</a>';
+  var ml=document.getElementById('mlnks');
+  ml.innerHTML='';
+  q.res.forEach(function(r){
+    ml.innerHTML+='<a class="ml2" href="'+r.u+'" target="_blank"><span class="mli">&#128279;</span><div><span class="mlt">'+r.t+'</span><span class="mls">Yangi oynada ochiladi</span></div></a>';
+  });
+  document.getElementById('mod').classList.add('show');
+}
+function closeM(){ document.getElementById('mod').classList.remove('show'); }
+
+function done(){
+  document.getElementById('qs').style.display='none';
+  var rs=document.getElementById('rs');
+  rs.style.display='block';
+  var sc=[0,0,0,0];
+  sel.forEach(function(a,i){ if(a===Q[i].ans) sc[Math.floor(i/5)]++; });
+  var tot=sc.reduce(function(a,b){return a+b;},0);
+  var pct=tot/20;
+  var r=document.getElementById('sr');
+  r.textContent=tot+'/20';
+  r.style.background=pct>=0.8?'#edf7f1':pct>=0.6?'#fff7f0':'#fff0f0';
+  r.style.borderColor=pct>=0.8?'#1a7a3e':pct>=0.6?'#d08a40':'#b53030';
+  r.style.color=pct>=0.8?'#1a7a3e':pct>=0.6?'#8b4a00':'#b53030';
+  document.getElementById('rt').textContent=
+    pct>=0.9?'OOP ni mukammal tushundingiz!':
+    pct>=0.7?'Yaxshi natija!':
+    pct>=0.5?'Qoniqarli. Materiallarni qayta o\'qing.':
+    'Materiallarni qayta o\'rganing.';
+  document.getElementById('rp').textContent=tot+' ta to\'g\'ri / 20 ta · '+Math.round(pct*100)+'%';
+  ['sc1','sc2','sc3','sc4'].forEach(function(id,i){
+    document.getElementById(id).textContent=sc[i]+'/5';
+  });
+  var rl=document.getElementById('rl');
+  rl.innerHTML='';
+  Q.forEach(function(q,i){
+    var ok=sel[i]===q.ans;
+    var d=document.createElement('div');
+    d.className='ri2 '+(ok?'ok2':'ng2');
+    var txt='<div class="rih"><div class="rio">'+(ok?'&#9989;':'&#10060;')+'</div><div>';
+    txt+='<div class="riqn">Savol '+(i+1)+' &mdash; '+q.s+'</div>';
+    txt+='<div class="riq">'+q.q+'</div></div></div>';
+    txt+='<div class="rans"><div class="rca">&#10003; To\'g\'ri: '+K[q.ans]+'. '+q.o[q.ans].t+'</div>';
+    if(!ok && sel[i]>=0) txt+='<div class="rwa">&#10007; Sizning: '+K[sel[i]]+'. '+q.o[sel[i]].t+'</div>';
+    txt+='</div><div class="rexp"><div class="rexh">Izoh</div><p>'+q.o[q.ans].w+'</p></div>';
+    d.innerHTML=txt;
+    rl.appendChild(d);
+  });
+  rs.scrollIntoView({behavior:'smooth'});
+}
+
+function restart(){
+  sel.fill(-1); cur=0;
+  document.querySelectorAll('.qcard').forEach(function(c,i){
+    c.classList.toggle('on',i===0);
+    c.querySelectorAll('.opt').forEach(function(o){
+      o.classList.remove('ok','ng','sk','done');
+    });
+    var b=c.querySelector('.btnx');
+    if(b) b.disabled=true;
+  });
+  document.getElementById('ptxt').textContent='1 / 20';
+  document.getElementById('pbar').style.width='5%';
+  document.getElementById('rs').style.display='none';
+  document.getElementById('qs').style.display='block';
+  document.getElementById('qs').scrollIntoView({behavior:'smooth'});
+}
+
+build();
+</script>
+</body>
+</html>
