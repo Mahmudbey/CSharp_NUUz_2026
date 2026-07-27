@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "J59MXwIoIkc=",
+  "success": true,
+  "projectFilePath": "D:\\Asosiy\\Docs\\#Projects\\C#\\csharp-labs\\_GitHub_CSharp_NUUz_2026\\Test_Yolo\\Test_Yolo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maxmu\\.nuget\\packages\\microsoft.ml.onnxruntime\\1.23.0\\microsoft.ml.onnxruntime.1.23.0.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\microsoft.ml.onnxruntime.managed\\1.23.0\\microsoft.ml.onnxruntime.managed.1.23.0.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\skiasharp\\4.150.1\\skiasharp.4.150.1.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\skiasharp.nativeassets.macos\\4.150.1\\skiasharp.nativeassets.macos.4.150.1.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\skiasharp.nativeassets.win32\\4.150.1\\skiasharp.nativeassets.win32.4.150.1.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\yolodotnet\\4.2.0\\yolodotnet.4.2.0.nupkg.sha512",
+    "C:\\Users\\maxmu\\.nuget\\packages\\yolodotnet.executionprovider.cpu\\1.1.0\\yolodotnet.executionprovider.cpu.1.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="4.150.1" />
+    <PackageReference Include="YoloDotNet" Version="4.2.0" />
+    <PackageReference Include="YoloDotNet.ExecutionProvider.Cpu" Version="1.1.0" />
+  </ItemGroup>
+
+</Project>
