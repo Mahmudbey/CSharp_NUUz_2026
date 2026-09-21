@@ -1,0 +1,16 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.AssemblyInfoInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.AssemblyInfo.cs
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.sourcelink.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\bin\Debug\net10.0\Maxmud27_Mini.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\bin\Debug\net10.0\Maxmud27_Mini.deps.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\bin\Debug\net10.0\Maxmud27_Mini.runtimeconfig.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\bin\Debug\net10.0\Maxmud27_Mini.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\bin\Debug\net10.0\Maxmud27_Mini.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\refint\Maxmud27_Mini.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27_Mini.genruntimeconfig.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\ref\Maxmud27_Mini.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud27_Mini\obj\Debug\net10.0\Maxmud27.EDF5B3A9.Up2Date
