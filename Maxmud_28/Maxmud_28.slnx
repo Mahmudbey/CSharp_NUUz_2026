@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Mod/Mod.csproj" />
+  <Project Path="Maxmud_28.csproj" />
+</Solution>
