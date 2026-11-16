@@ -1,0 +1,13 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\bin\Release\net10.0\Mod.deps.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\bin\Release\net10.0\Mod.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\bin\Release\net10.0\Mod.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.AssemblyInfoInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.AssemblyInfo.cs
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.sourcelink.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\refint\Mod.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\ref\Mod.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Mod\obj\Release\net10.0\Mod.csproj.Up2Date

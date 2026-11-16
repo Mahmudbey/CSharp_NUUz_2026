@@ -1,0 +1,44 @@
+﻿using System;
+using YoloDotNet;
+using YoloDotNet.Enums;
+using YoloDotNet.Models;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 1. Initialize the YOLO configuration
+        var options = new YoloOptions
+        {
+            ModelPath = "path/to/your/yolov8n-face.onnx", // Path to your face ONNX model
+            ModelType = ModelType.ObjectDetection,       // Set the core task type
+            TargetDevice = TargetDevice.CPU              // Use TargetDevice.GPU for CUDA
+        };
+
+        // 2. Load the model into memory
+        using var yolo = new Yolo(options);
+
+        // 3. Set your target image path
+        string imagePath = "input_people.jpg";
+
+        // 4. Run the inference
+        // Change the confidence threshold (e.g., 0.5f) to filter out weak detections
+        var results = yolo.RunObjectDetection(imagePath, confidence: 0.5f);
+
+        // 5. Process and display the bounding boxes
+        Console.WriteLine($"Detected {results.Count} face(s):");
+
+        foreach (var detection in results)
+        {
+            // 'Label' corresponds to the index or name of the detected class (e.g., "face")
+            Console.WriteLine($"- Bounding Box: X={detection.BoundingBox.X}, Y={detection.BoundingBox.Y}, " +
+                              $"Width={detection.BoundingBox.Width}, Height={detection.BoundingBox.Height} " +
+                              $"| Confidence: {detection.Confidence:P2}");
+        }
+
+        // 6. Save a visual preview of the results
+        // This automatically saves an image with drawn bounding boxes to your directory
+        yolo.SaveImage(results, imagePath, "output_detected_faces.jpg");
+        Console.WriteLine("Output saved to output_detected_faces.jpg");
+    }
+}

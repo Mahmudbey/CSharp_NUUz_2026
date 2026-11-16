@@ -1,0 +1,42 @@
+﻿using System;
+using YoloDotNet;
+using SkiaSharp;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 1. Path to your ONNX model
+        string modelPath = "path/to/your/yolov8n-face.onnx";
+
+        // 2. Load the model into memory
+        using var yolo = new Yolo(modelPath);
+
+        // 3. Set your target image path
+        string imagePath = @"D:\\Asosiy\\Download\\Edge\\Panda.jpg";
+
+        // Load the image using SkiaSharp
+        using var bitmap = SKBitmap.Decode(imagePath);
+
+        // 4. Run the inference with confidence and IoU thresholds
+        var results = yolo.RunObjectDetection(bitmap, confidence: 0.5, iou: 0.45);
+
+        // 5. Process and display the bounding boxes
+        Console.WriteLine($"Detected {results.Count} object(s):");
+
+        foreach (var detection in results)
+        {
+            // Access bounding box properties
+            var box = detection.BoundingBox;
+            Console.WriteLine($"- Label: {detection.Label.Name} | Bounding Box: Left={box.Left}, Top={box.Top}, " +
+                              $"Width={box.Width}, Height={box.Height} " +
+                              $"| Confidence: {detection.Confidence:P2}");
+        }
+
+        // 6. Save a visual preview of the results
+        var outputImage = yolo.Draw(results, bitmap);
+        using var outputStream = System.IO.File.OpenWrite("output_detected_faces.jpg");
+        outputImage.Encode(outputStream, SKEncodedImageFormat.Jpeg, 95);
+        Console.WriteLine("Output saved to output_detected_faces.jpg");
+    }
+}

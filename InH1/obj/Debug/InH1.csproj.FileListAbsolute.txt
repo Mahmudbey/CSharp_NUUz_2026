@@ -1,0 +1,7 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\bin\Debug\InH1.exe.config
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\bin\Debug\InH1.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\bin\Debug\InH1.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\obj\Debug\InH1.csproj.AssemblyReference.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\obj\Debug\InH1.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\obj\Debug\InH1.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\InH1\obj\Debug\InH1.pdb

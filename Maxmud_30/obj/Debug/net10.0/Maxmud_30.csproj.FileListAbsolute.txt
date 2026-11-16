@@ -1,0 +1,16 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\bin\Debug\net10.0\Maxmud_30.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\bin\Debug\net10.0\Maxmud_30.deps.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\bin\Debug\net10.0\Maxmud_30.runtimeconfig.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\bin\Debug\net10.0\Maxmud_30.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\bin\Debug\net10.0\Maxmud_30.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.AssemblyInfoInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.AssemblyInfo.cs
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.sourcelink.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\refint\Maxmud_30.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.genruntimeconfig.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\ref\Maxmud_30.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Maxmud_30\obj\Debug\net10.0\Maxmud_30.csproj.Up2Date

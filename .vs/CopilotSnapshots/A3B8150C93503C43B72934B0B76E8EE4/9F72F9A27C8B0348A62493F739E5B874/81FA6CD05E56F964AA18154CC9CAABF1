@@ -1,0 +1,46 @@
+﻿using System;
+using YoloDotNet;
+using YoloDotNet.Enums;
+using SkiaSharp;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 1. Initialize the YOLO configuration with the new API
+        var options = new YoloOptions
+        {
+            OnnxModel = "path/to/your/yolov8n-face.onnx",  // Path to your face ONNX model
+            Cuda = false,  // Set to true for GPU acceleration
+            GpuId = 0
+        };
+
+        // 2. Load the model into memory
+        using var yolo = new Yolo(options);
+
+        // 3. Set your target image path
+        string imagePath = "input_people.jpg";
+
+        // Load the image using SkiaSharp
+        using var bitmap = SKBitmap.Decode(imagePath);
+
+        // 4. Run the inference with confidence threshold
+        var results = yolo.RunObjectDetection(bitmap, confidence: 0.5, iou: 0.45);
+
+        // 5. Process and display the bounding boxes
+        Console.WriteLine($"Detected {results.Count} object(s):");
+
+        foreach (var detection in results)
+        {
+            // Access bounding box properties
+            var box = detection.BoundingBox;
+            Console.WriteLine($"- Label: {detection.Label.Name} | Bounding Box: Left={box.Left}, Top={box.Top}, " +
+                              $"Width={box.Width}, Height={box.Height} " +
+                              $"| Confidence: {detection.Confidence:P2}");
+        }
+
+        // 6. Save a visual preview of the results
+        yolo.Draw(results, imagePath, "output_detected_faces.jpg");
+        Console.WriteLine("Output saved to output_detected_faces.jpg");
+    }
+}
