@@ -1,0 +1,7 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\bin\Debug\ConsoleApp4.exe.config
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\bin\Debug\ConsoleApp4.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\bin\Debug\ConsoleApp4.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\obj\Debug\ConsoleApp4.csproj.AssemblyReference.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\obj\Debug\ConsoleApp4.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\obj\Debug\ConsoleApp4.exe
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\ConsoleApp4\obj\Debug\ConsoleApp4.pdb

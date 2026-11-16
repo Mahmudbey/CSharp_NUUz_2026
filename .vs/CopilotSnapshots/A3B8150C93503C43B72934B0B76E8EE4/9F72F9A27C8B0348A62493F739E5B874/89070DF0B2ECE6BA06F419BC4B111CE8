@@ -1,0 +1,25 @@
+﻿using System;
+using YoloDotNet;
+using YoloDotNet.Models;
+using System.Reflection;
+
+class TestReflection
+{
+    static void Main()
+    {
+        var yoloOptionsType = typeof(YoloOptions);
+        Console.WriteLine("=== YoloOptions Properties ===");
+        foreach (var prop in yoloOptionsType.GetProperties())
+        {
+            Console.WriteLine($"{prop.PropertyType.Name} {prop.Name}");
+        }
+
+        Console.WriteLine("\n=== Yolo Public Methods ===");
+        var yoloType = typeof(Yolo);
+        foreach (var method in yoloType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+        {
+            var parameters = string.Join(", ", method.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"));
+            Console.WriteLine($"{method.ReturnType.Name} {method.Name}({parameters})");
+        }
+    }
+}

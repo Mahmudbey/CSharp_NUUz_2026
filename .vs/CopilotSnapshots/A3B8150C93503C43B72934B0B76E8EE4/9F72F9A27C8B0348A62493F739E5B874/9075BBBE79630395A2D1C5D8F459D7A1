@@ -1,0 +1,93 @@
+﻿using System;
+using YoloDotNet;
+using YoloDotNet.Models;
+using YoloDotNet.Extensions;
+using SkiaSharp;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 1. Configure YOLO options with CPU execution provider
+        var options = new YoloOptions
+        {
+            ExecutionProvider = ExecutionProvider.Cpu()
+        };
+
+        // 2. Load the YOLO model (provide path to your .onnx model)
+        string modelPath = "path/to/your/yolov8n-face.onnx";
+        using var yolo = new Yolo(modelPath, options);
+
+        // 3. Load the image
+        string imagePath = @"D:\Asosiy\Download\Edge\Panda.jpg";
+
+        // Check if file exists
+        if (!System.IO.File.Exists(imagePath))
+        {
+            Console.WriteLine($"Error: Image file not found at {imagePath}");
+            Console.WriteLine("Please update the imagePath variable with a valid image file.");
+            return;
+        }
+
+        using var bitmap = SKBitmap.Decode(imagePath);
+
+        if (bitmap == null)
+        {
+            Console.WriteLine("Error: Could not decode image file.");
+            return;
+        }
+
+        // 4. Run object detection with confidence and IoU thresholds
+        Console.WriteLine("Running object detection...");
+        var results = yolo.RunObjectDetection(bitmap, confidence: 0.5, iou: 0.45);
+
+        // 5. Display detection results
+        Console.WriteLine($"\nDetected {results.Count} object(s):");
+
+        foreach (var detection in results)
+        {
+            var box = detection.BoundingBox;
+            Console.WriteLine($"- Label: {detection.Label.Name} " +
+                              $"| Confidence: {detection.Confidence:P2} " +
+                              $"| Box: Left={box.Left}, Top={box.Top}, Width={box.Width}, Height={box.Height}");
+        }
+
+        // 6. Draw bounding boxes on the image and save
+        Console.WriteLine("\nDrawing bounding boxes...");
+
+        using var canvas = new SKCanvas(bitmap);
+        using var paint = new SKPaint
+        {
+            Style = SKPaintStyle.Stroke,
+            Color = SKColors.Red,
+            StrokeWidth = 3,
+            IsAntialias = true
+        };
+
+        using var textPaint = new SKPaint
+        {
+            Color = SKColors.Red,
+            TextSize = 20,
+            IsAntialias = true
+        };
+
+        foreach (var detection in results)
+        {
+            var box = detection.BoundingBox;
+            canvas.DrawRect(box, paint);
+
+            var label = $"{detection.Label.Name} {detection.Confidence:P0}";
+            canvas.DrawText(label, box.Left, box.Top - 5, textPaint);
+        }
+
+        // Save the output image
+        string outputPath = "output_detected_faces.jpg";
+        using var image = SKImage.FromBitmap(bitmap);
+        using var data = image.Encode(SKEncodedImageFormat.Jpeg, 95);
+        using var stream = System.IO.File.OpenWrite(outputPath);
+        data.SaveTo(stream);
+
+        Console.WriteLine($"Output saved to {outputPath}");
+        Console.WriteLine($"\nModel info: {yolo.ModelInfo}");
+    }
+}

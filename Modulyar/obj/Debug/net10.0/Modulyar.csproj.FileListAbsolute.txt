@@ -1,0 +1,13 @@
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\bin\Debug\net10.0\Modulyar.deps.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\bin\Debug\net10.0\Modulyar.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\bin\Debug\net10.0\Modulyar.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.AssemblyInfoInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.AssemblyInfo.cs
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.sourcelink.json
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\refint\Modulyar.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.pdb
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\ref\Modulyar.dll
+C:\Users\Max\Documents\Asosiy\Docs\#Projects\C#\csharp-labs\_GitHub_CSharp_NUUz_2026\Modulyar\obj\Debug\net10.0\Modulyar.csproj.Up2Date
